@@ -20,7 +20,7 @@
         <div
             class="f-header__nav-grid lg:justify-between w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
             <div class="f-header__nav-logo-wrapper grow basis-0">
-                <a href="index.html" class="f-header__logo">
+                <a href="{{ route('client.index') }}" class="f-header__logo">
                     <svg width="104" height="30" viewBox="0 0 104 30">
                         <title>Go to homepage</title>
                         <path
@@ -55,40 +55,47 @@
             </ul>
 
             <ul class="f-header__list grow basis-0 lg:justify-end">
-                <li class="f-header__item">
-                    <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Twitter">
-                        <svg class="icon" viewBox="0 0 32 32">
-                            <g>
+                @guest
+                    <li class="f-header__item">
+                        <a href="{{ route('client.login') }}" class="f-header__link" aria-label="Login">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="f-header__item">
+                        <a href="{{ route('client.register') }}" class="f-header__link" aria-label="Register">
+                            Register
+                        </a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="f-header__item">
+                        <a href="#" class="f-header__link">
+                            <span>{{ auth()->user()->name }}</span>
+                            <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12">
                                 <path
-                                    d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z">
-                                </path>
-                            </g>
-                        </svg>
-                        <span class="ml-1.5 lg:ml-2">Follow us on Twitter</span>
-                    </a>
-                </li>
+                                    d="M9.943,4.269A.5.5,0,0,0,9.5,4h-7a.5.5,0,0,0-.41.787l3.5,5a.5.5,0,0,0,.82,0l3.5-5A.5.5,0,0,0,9.943,4.269Z" />
+                            </svg>
+                        </a>
 
-                <li class="f-header__item">
-                    <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Facebook">
-                        <svg class="icon" viewBox="0 0 32 32">
-                            <path
-                                d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z">
-                            </path>
-                        </svg>
-                        <span class="ml-1.5 lg:ml-2">Follow us on Facebook</span>
-                    </a>
-                </li>
+                        <ul class="f-header__dropdown">
+                            <li><a href="{{ route('client.profile.edit') }}"
+                                    class="f-header__dropdown-link leading-tight">Profile</a></li>
+                            <li><a href="#" class="f-header__dropdown-link leading-tight">Cart</a></li>
+                            <li>
+                                <form id="logout-form" action="{{ route('client.logout') }}" method="POST">
+                                    @csrf
+                                    <a href="{{ route('client.logout') }}"
+                                        onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                        class="f-header__dropdown-link leading-tight">Logout</a>
+                                </form>
+                            </li>
 
-                <li class="f-header__item">
-                    <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Youtube">
-                        <svg class="icon" viewBox="0 0 32 32">
-                            <path
-                                d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z">
-                            </path>
-                        </svg>
-                        <span class="ml-1.5 lg:ml-2">Follow us on Youtube</span>
-                    </a>
-                </li>
+
+                        </ul>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

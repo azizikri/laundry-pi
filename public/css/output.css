@@ -1016,6 +1016,21 @@ mark {
   box-shadow: inset 0px 0px 0px 1px hsl(var(--color-contrast-lower)), 0px 0px 0px 2px hsla(var(--color-contrast-higher) / 0.05);
 }
 
+.btn--accent {
+    background: hsl(var(--color-accent));
+    color: hsl(var(--color-white));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 3px hsla(var(--color-accent-darker) / 0.25), 0px 2px 6px hsla(var(--color-accent-darker) / 0.1), 0px 6px 10px -2px hsla(var(--color-accent-darker) / 0.25);
+  }
+
+  .btn--accent:hover {
+    background: hsl(var(--color-accent-light));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 2px hsla(var(--color-accent-darker) / 0.25), 0px 1px 4px hsla(var(--color-accent-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-accent-darker) / 0.1);
+  }
+
+  .btn--accent:focus-visible {
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 2px hsla(var(--color-accent-darker) / 0.25), 0px 1px 4px hsla(var(--color-accent-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-accent-darker) / 0.1), 0 0 0 2px hsl(var(--color-floor)), 0 0 0 4px hsl(var(--color-accent));
+  }
+
 /* feedback */
 
 .btn--disabled, .btn[disabled], .btn[readonly] {
@@ -1190,42 +1205,42 @@ mark {
   --text-space-y-multiplier: 2;
 }
 
-.text-component :where(h1), 
-  .text-component :where(h2), 
-  .text-component :where(h3), 
+.text-component :where(h1),
+  .text-component :where(h2),
+  .text-component :where(h3),
   .text-component :where(h4) {
   line-height: calc(var(--heading-line-height) * var(--line-height-multiplier, 1));
   margin-bottom: calc(0.3125em * var(--text-space-y-multiplier, 1));
 }
 
-.text-component :where(h2), 
-  .text-component :where(h3), 
+.text-component :where(h2),
+  .text-component :where(h3),
   .text-component :where(h4) {
   margin-top: calc(0.9375em * var(--text-space-y-multiplier, 1));
 }
 
-.text-component p, 
-  .text-component blockquote, 
-  .text-component ul li, 
+.text-component p,
+  .text-component blockquote,
+  .text-component ul li,
   .text-component ol li {
   line-height: calc(var(--body-line-height) * var(--line-height-multiplier, 1));
 }
 
-.text-component ul, 
-  .text-component ol, 
-  .text-component p, 
+.text-component ul,
+  .text-component ol,
+  .text-component p,
   .text-component blockquote {
   margin-bottom: calc(0.9375em * var(--text-space-y-multiplier, 1));
 }
 
-.text-component :where(ul), 
+.text-component :where(ul),
   .text-component :where(ol) {
   list-style-position: inside;
 }
 
-.text-component ul ul, 
+.text-component ul ul,
   .text-component ul ol,
-  .text-component ol ul, 
+  .text-component ol ul,
   .text-component ol ol {
   padding-left: 1em;
   margin-bottom: 0;
@@ -1390,7 +1405,7 @@ mark {
 
 /* #region CodyHouse components CSS */
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_3d-text-block
 Title: 3D Text Block
@@ -1567,7 +1582,7 @@ Usage: codyhouse.co/license
           clip-path: inset(0% 0% 0% calc(100%/4*3));
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_accordion
 Title: Accordion
@@ -1724,7 +1739,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_adv-gallery
 Title: Advanced Gallery
@@ -1842,7 +1857,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_anim-menu-btn
 Title: Animated Menu Button
@@ -2017,7 +2032,7 @@ Usage: codyhouse.co/license
   transform: rotate(-90deg);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_article-gallery-v3
 Title: Article Gallery v3
@@ -2117,7 +2132,7 @@ Usage: codyhouse.co/license
   text-decoration: underline;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_author
 Title: Author
@@ -2236,7 +2251,7 @@ Usage: codyhouse.co/license
   color: hsl(var(--color-primary) / var(--tw-text-opacity));
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_background-decoration
 Title: Background Decoration
@@ -2266,7 +2281,7 @@ Usage: codyhouse.co/license
   height: auto;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_banner
 Title: Banner
@@ -2375,7 +2390,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_button-effects
 Title: Button Effects
@@ -2720,7 +2735,7 @@ Usage: codyhouse.co/license
   box-shadow: 0 0.3px 0.4px rgba(0, 0, 0, 0.025), 0 0.9px 1.5px rgba(0, 0, 0, 0.05), 0 3.5px 6px rgba(0, 0, 0, 0.1), 0 0 0 3px hsla(var(--color-contrast-higher) / 0.15);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_details-list
 Title: Details List
@@ -2850,7 +2865,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_devices
 Title: Devices
@@ -3393,7 +3408,7 @@ Usage: codyhouse.co/license
 
 /* #endregion */
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_diagonal-section
 Title: Diagonal Section
@@ -3467,7 +3482,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_feature-v10
 Title: Feature v10
@@ -3522,7 +3537,7 @@ Usage: codyhouse.co/license
   height: 100%;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_feature-v9
 Title: Feature v9
@@ -3652,7 +3667,7 @@ Usage: codyhouse.co/license
   background-color: hsla(var(--color-white) / 1);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_google-maps
 Title: Google Maps
@@ -3675,7 +3690,7 @@ Usage: codyhouse.co/license
   padding-bottom: 33%;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_immersive-section-transition
 Title: Immersive Section Transition
@@ -3764,7 +3779,7 @@ html:not(.js) .immerse-section-tr__content {
   background-color: hsl(var(--color-floor) / var(--tw-bg-opacity));
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_link-effects
 Title: Link Effects
@@ -4020,7 +4035,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_list-v2
 Title: List v2
@@ -4127,7 +4142,7 @@ Usage: codyhouse.co/license
   /* icon color */
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_list
 Title: List
@@ -4328,7 +4343,7 @@ Usage: codyhouse.co/license
 
 /* #endregion */
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_main-footer
 Title: Main Footer
@@ -4379,7 +4394,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_modal-window
 Title: Modal Window
@@ -4623,10 +4638,10 @@ Usage: codyhouse.co/license
   pointer-events: none;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_newsletter
-Title: Newsletter 
+Title: Newsletter
 Descr: Newsletter form template
 Usage: codyhouse.co/license
 
@@ -4637,10 +4652,10 @@ Usage: codyhouse.co/license
   z-index: 1;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_notice
-Title: Notice 
+Title: Notice
 Descr: Modeless notice banner, visible by default
 Usage: codyhouse.co/license
 
@@ -4700,10 +4715,10 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_pagination
-Title: Pagination 
+Title: Pagination
 Descr: Component used to navigate through pages of related content
 Usage: codyhouse.co/license
 
@@ -4784,7 +4799,7 @@ Usage: codyhouse.co/license
   white-space: nowrap;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_radio-switch
 Title: Radio Switch
@@ -4883,7 +4898,7 @@ Usage: codyhouse.co/license
   transform: translateX(100%);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_radios-checkboxes
 Title: Radios and Checkboxes
@@ -4971,7 +4986,7 @@ Usage: codyhouse.co/license
   border-radius: var(--checkbox-radius);
 }
 
-.radio:checked + label::before, 
+.radio:checked + label::before,
 .checkbox:checked + label::before {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--color-primary) / var(--tw-bg-opacity));
@@ -5005,9 +5020,9 @@ Usage: codyhouse.co/license
   background-size: var(--checkbox-marker-size);
 }
 
-.radio:checked:active + label::before, 
-.checkbox:checked:active + label::before, 
-.radio:focus + label::before, 
+.radio:checked:active + label::before,
+.checkbox:checked:active + label::before,
+.radio:focus + label::before,
 .checkbox:focus + label::before {
   --tw-border-opacity: 1;
   border-color: hsl(var(--color-primary) / var(--tw-border-opacity));
@@ -5053,7 +5068,7 @@ Usage: codyhouse.co/license
   background-color: hsla(var(--color-primary) / 0.1);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_reading-progressbar
 Title: Reading Progress Bar
@@ -5104,7 +5119,7 @@ Usage: codyhouse.co/license
   background-color: currentColor;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_reveal-effects
 Title: Reveal Effects
@@ -5246,7 +5261,7 @@ Usage: codyhouse.co/license
           clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_search-input
 Title: Search input
@@ -5330,7 +5345,7 @@ Usage: codyhouse.co/license
   pointer-events: none;
 }
 
-.search-input__btn:focus .icon, 
+.search-input__btn:focus .icon,
 .search-input .search-input__input:focus + .search-input__btn .icon {
   --tw-text-opacity: 1;
   color: hsl(var(--color-primary) / var(--tw-text-opacity));
@@ -5376,7 +5391,7 @@ Usage: codyhouse.co/license
   display: none;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_skip-link
 Title: Skip Link
@@ -5432,7 +5447,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_social-sharing
 Title: Social Sharing
@@ -5472,7 +5487,7 @@ Usage: codyhouse.co/license
   color: hsl(var(--color-contrast-higher) / var(--tw-text-opacity));
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_sticky-hero
 Title: Sticky Hero
@@ -5554,11 +5569,11 @@ Usage: codyhouse.co/license
   transform: translateZ(0);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_testimonial
 Title: Testimonial
-Descr: A testimonial quote 
+Descr: A testimonial quote
 Usage: codyhouse.co/license
 
 -------------------------------- */
@@ -5578,7 +5593,7 @@ Usage: codyhouse.co/license
   left: -0.5em;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_text-points
 Title: Text Points
@@ -5675,7 +5690,7 @@ Usage: codyhouse.co/license
   background-color: hsl(var(--color-contrast-lower) / var(--tw-bg-opacity));
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_vertical-timeline
 Title: Vertical Timeline
@@ -5896,7 +5911,7 @@ Usage: codyhouse.co/license
   --v-timeline-marker-size: 3em;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_contact
 Title: Contact
@@ -5912,7 +5927,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_device-group
 Title: Device Group
@@ -6059,7 +6074,7 @@ Usage: codyhouse.co/license
   grid-column: 6/13;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_flexi-header
 Title: Flexi Header
@@ -6205,20 +6220,20 @@ Usage: codyhouse.co/license
   display: block;
 }
 
-.f-header__link, 
-.f-header__dropdown-control, 
-.f-header__dropdown-link, 
-.f-header__btn, 
+.f-header__link,
+.f-header__dropdown-control,
+.f-header__dropdown-link,
+.f-header__btn,
 .f-header__form-control {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
 @media (min-width: 1024px) {
-  .f-header__link, 
-.f-header__dropdown-control, 
-.f-header__dropdown-link, 
-.f-header__btn, 
+  .f-header__link,
+.f-header__dropdown-control,
+.f-header__dropdown-link,
+.f-header__btn,
 .f-header__form-control {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -6240,8 +6255,8 @@ Usage: codyhouse.co/license
 }
 
 @media (min-width: 1024px) {
-  .f-header__link, 
-.f-header__dropdown-control, 
+  .f-header__link,
+.f-header__dropdown-control,
 .f-header__dropdown-link {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
@@ -6272,7 +6287,7 @@ Usage: codyhouse.co/license
 }
 
 @media (min-width: 1024px) {
-  .f-header__btn, 
+  .f-header__btn,
 .f-header__form-control {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
@@ -6478,7 +6493,7 @@ html:not(.js) .f-header__nav {
   transform: translateY(0);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_points-of-interest
 Title: Points Of Interest
@@ -6583,7 +6598,7 @@ Usage: codyhouse.co/license
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_pricing-table
 Title: Pricing Table
@@ -6735,7 +6750,7 @@ Usage: codyhouse.co/license
   transform: translateY(0);
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _2_sticky-sharebar
 Title: Sticky Sharebar

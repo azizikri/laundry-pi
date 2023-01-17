@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('client.register') }}">
+    <form method="POST" action="{{ route('client.register.store') }}">
         @csrf
 
         <!-- Name -->
