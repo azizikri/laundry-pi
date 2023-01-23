@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +34,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('qwertyuiop'),
+        ]);
+
+        Product::create([
+            'name' => 'Product',
+            'slug' => 'product',
+            'description' => 'Product Description',
+            'price' => 10000000,
+            'image' => 'product.jpg',
         ]);
 
 

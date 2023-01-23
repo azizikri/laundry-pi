@@ -15,7 +15,46 @@
       <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
         <a href="{{ route('admin.dashboard')}}" class="nav-link">
           <i class="link-icon" data-feather="box"></i>
-          <span class="link-title">Dashboard</span>
+          <span class="link-title">Dasbor</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">Transaksi</li>
+      <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
+        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">Pemesanan</span>
+        </a>
+      </li>
+      <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
+        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">Konfirmasi Pembayaran</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">Inventori</li>
+      <li class="nav-item {{ active_class([route('admin.products.index')]) }}">
+        <a href="{{ route('admin.products.index')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">Produk</span>
+        </a>
+      </li>
+      <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
+        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">Paket</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">Pengguna</li>
+      <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
+        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">User</span>
+        </a>
+      </li>
+      <li class="nav-item {{ active_class([route('admin.dashboard')]) }}">
+        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title">Admin</span>
         </a>
       </li>
       <li class="nav-item nav-category">web apps</li>
