@@ -4,7 +4,8 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Paket</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Buat</li>
+            <li class="breadcrumb-item"><a href="#">{{ $package->name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
         </ol>
     </nav>
 
@@ -34,11 +35,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="kg" class="form-label">Berat Cucian (kg)</label>
-                            <input name="kg" type="number" class="form-control" id="kg" placeholder="Berat Cucian (kg)" value={{ old('kg') ?? $package->kg }}>
+                            <input name="kg" type="number" class="form-control" id="kg" placeholder="Berat Cucian (kg)" value="{{ old('kg') ?? $package->kg }}">
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Harga</label>
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value={{ old('price') ?? $package->price }}>
+                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value="{{ old('price') ?? $package->price }}">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Deskripsi</label>

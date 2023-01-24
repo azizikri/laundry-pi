@@ -4,6 +4,7 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Kurir</a></li>
+            <li class="breadcrumb-item"><a href="#">{{ $courier->name }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">Edit</li>
         </ol>
     </nav>

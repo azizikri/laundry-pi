@@ -37,7 +37,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Harga</label>
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value={{ old('price') }}>
+                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value="{{ old('price') }}">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Deskripsi</label>
