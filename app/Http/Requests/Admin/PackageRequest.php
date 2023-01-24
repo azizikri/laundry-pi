@@ -13,7 +13,7 @@ class PackageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->guard('admin')->check();
     }
 
     /**
@@ -24,7 +24,10 @@ class PackageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric'],
+            'description' => ['required', 'string', 'max:255'],
+            'kg' => ['required', 'numeric'],
         ];
     }
 }

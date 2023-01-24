@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PackageRequest;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        $packages = Package::latest()->get();
+
+        return view('admin.packages.index', [
+            'packages' => $packages,
+        ]);
     }
 
     /**
@@ -25,7 +30,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.packages.create');
     }
 
     /**
@@ -34,20 +39,13 @@ class PackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PackageRequest $request)
     {
-        //
-    }
+        $data = $request->validated();
+        $data['slug'] = $data['name'];
+        Package::create($data);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Package  $package
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Package $package)
-    {
-        //
+        return redirect()->route('admin.packages.index')->with('success', 'Paket berhasil dibuat!');
     }
 
     /**
@@ -58,7 +56,9 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        //
+        return view('admin.packages.edit', [
+            'package' => $package,
+        ]);
     }
 
     /**
@@ -68,9 +68,13 @@ class PackageController extends Controller
      * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Package $package)
+    public function update(PackageRequest $request, Package $package)
     {
-        //
+        $data = $request->validated();
+        $data['slug'] = $data['name'];
+        $package->update($data);
+
+        return redirect()->route('admin.packages.index')->with('success', 'Paket berhasil diubah!');
     }
 
     /**
@@ -81,6 +85,8 @@ class PackageController extends Controller
      */
     public function destroy(Package $package)
     {
-        //
+        $package->delete();
+
+        return redirect()->route('admin.packages.index')->with('success', 'Paket berhasil dihapus!');
     }
 }
