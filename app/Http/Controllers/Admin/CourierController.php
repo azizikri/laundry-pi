@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Courier;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CourierRequest;
 
 class CourierController extends Controller
 {
@@ -14,7 +16,11 @@ class CourierController extends Controller
      */
     public function index()
     {
-        //
+        $couriers = Courier::latest()->get();
+
+        return view('admin.couriers.index', [
+            'couriers' => $couriers,
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class CourierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.couriers.create');
     }
 
     /**
@@ -33,20 +39,11 @@ class CourierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourierRequest $request)
     {
-        //
-    }
+        Courier::create($request->validated());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Courier  $courier
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Courier $courier)
-    {
-        //
+        return redirect()->route('admin.couriers.index')->with('success', 'Kurir Berhasil dibuat!');
     }
 
     /**
@@ -57,7 +54,9 @@ class CourierController extends Controller
      */
     public function edit(Courier $courier)
     {
-        //
+        return view('admin.couriers.edit', [
+            'courier' => $courier,
+        ]);
     }
 
     /**
@@ -67,9 +66,11 @@ class CourierController extends Controller
      * @param  \App\Models\Courier  $courier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Courier $courier)
+    public function update(CourierRequest $request, Courier $courier)
     {
-        //
+        $courier->update($request->validated());
+
+        return redirect()->route('admin.couriers.index')->with('success', 'Kurir Berhasil diupdate!');
     }
 
     /**
@@ -80,6 +81,8 @@ class CourierController extends Controller
      */
     public function destroy(Courier $courier)
     {
-        //
+        $courier->delete();
+
+        return redirect()->route('admin.couriers.index')->with('success', 'Kurir Berhasil dihapus!');
     }
 }
