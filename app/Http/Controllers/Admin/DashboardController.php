@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Order;
+use App\Models\Package;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Courier;
 
 class DashboardController extends Controller
 {
@@ -15,6 +20,21 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
-        return view('admin.dashboard');
+        $userCount = User::count();
+        $productCount = Product::count();
+        $packageCount = Package::count();
+        $courierCount = Courier::count();
+        $totalOrderCount = Order::count();
+        $orderCompletedCount = Order::where('status', 'completed')->count();
+
+
+        return view('admin.dashboard', [
+            'userCount' => $userCount,
+            'productCount' => $productCount,
+            'packageCount' => $packageCount,
+            'courierCount' => $courierCount,
+            'totalOrderCount' => $totalOrderCount,
+            'orderCompletedCount' => $orderCompletedCount,
+        ]);
     }
 }
