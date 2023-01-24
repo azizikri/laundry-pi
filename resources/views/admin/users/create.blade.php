@@ -4,7 +4,7 @@
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Kurir</a></li>
+            <li class="breadcrumb-item"><a href="#">User</a></li>
             <li class="breadcrumb-item active" aria-current="page">Buat</li>
         </ol>
     </nav>
@@ -24,8 +24,8 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title my-3">Buat Kurir</h6>
-                    <form class="forms-sample" action="{{ route('admin.couriers.store') }}" method="POST">
+                    <h6 class="card-title my-3">Buat User</h6>
+                    <form class="forms-sample" action="{{ route('admin.users.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama</label>
@@ -33,12 +33,20 @@
                                 placeholder="Nama" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="price" class="form-label">Harga</label>
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value="{{ old('price') }}">
+                            <label for="email" class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Email" value="{{ old('email') }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                            <input name="password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Konfirmasi Password">
                         </div>
 
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <a href="{{ route('admin.couriers.index') }}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Cancel</a>
                     </form>
 
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PackageRequest extends FormRequest
@@ -24,10 +25,10 @@ class PackageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'numeric'],
-            'description' => ['required', 'string', 'max:255'],
-            'kg' => ['required', 'numeric'],
+            'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
+            'price' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
+            'description' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
+            'kg' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
         ];
     }
 }

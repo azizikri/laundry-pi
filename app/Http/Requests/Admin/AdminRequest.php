@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourierRequest extends FormRequest
+class AdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class CourierRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->guard('admin')->check();
+        return false;
     }
 
     /**
@@ -25,8 +24,7 @@ class CourierRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
-            'price' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
+            //
         ];
     }
 }

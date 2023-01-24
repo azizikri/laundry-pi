@@ -52,8 +52,8 @@
         </a>
       </li>
       <li class="nav-item nav-category">Pengguna</li>
-      <li class="nav-item {{ active_class(['admin.dashboard']) }}">
-        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+      <li class="nav-item {{ active_class(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
+        <a href="{{ route('admin.users.index')}}" class="nav-link">
           <i class="link-icon" data-feather="box"></i>
           <span class="link-title">User</span>
         </a>

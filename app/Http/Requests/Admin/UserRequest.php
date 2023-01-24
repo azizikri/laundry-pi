@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourierRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +27,8 @@ class CourierRequest extends FormRequest
     {
         return [
             'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
-            'price' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
+            'email' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user->id)],
+            'password' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'min:8', 'confirmed'],
         ];
     }
 }
