@@ -47,6 +47,19 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+        <div>
+            <x-input-label for="full_address" :value="__('Alamat Lengkap')" />
+            <x-text-area id="full_address" name="full_address" type="text" class="mt-1 block w-full" required autofocus autocomplete="full_address" >
+                {{ old('full_address') ?? $user->full_address }}
+            </x-text-area>
+            <x-input-error class="mt-2" :messages="$errors->get('full_address')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
