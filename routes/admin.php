@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ use App\Http\Controllers\Admin\UserController;
      Route::resource('packages', PackageController::class)->except(['show']);
      Route::resource('couriers', CourierController::class)->except(['show']);
      Route::resource('users', UserController::class);
+     Route::resource('admins', AdminController::class)->except(['show']);
      // Route::resource('invoices', )->except(['create', 'store', 'edit', 'update']);
      // Route::resource('payments', )->except(['create', 'store', 'edit', 'update']);
  });

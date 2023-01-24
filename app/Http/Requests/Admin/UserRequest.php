@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
-            'email' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user->id)],
+            'email' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user?->id)],
             'password' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'min:8', 'confirmed'],
         ];
     }
