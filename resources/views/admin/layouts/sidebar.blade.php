@@ -14,20 +14,20 @@
       <li class="nav-item nav-category">Main</li>
       <li class="nav-item {{ active_class(['admin.dashboard']) }}">
         <a href="{{ route('admin.dashboard')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="home"></i>
           <span class="link-title">Dasbor</span>
         </a>
       </li>
       <li class="nav-item nav-category">Transaksi</li>
       <li class="nav-item {{ active_class(['admin.dashboard']) }}">
         <a href="{{ route('admin.dashboard')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="shopping-cart"></i>
           <span class="link-title">Pemesanan</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['admin.dashboard']) }}">
         <a href="{{ route('admin.dashboard')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="check-circle"></i>
           <span class="link-title">Konfirmasi Pembayaran</span>
         </a>
       </li>
@@ -40,27 +40,27 @@
       </li>
       <li class="nav-item {{ active_class(['admin.packages.index', 'admin.packages.create', 'admin.packages.edit']) }}">
         <a href="{{ route('admin.packages.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="shopping-bag"></i>
           <span class="link-title">Paket</span>
         </a>
       </li>
       <li class="nav-item nav-category">Ekspedisi</li>
       <li class="nav-item {{ active_class(['admin.couriers.index', 'admin.couriers.create', 'admin.couriers.edit']) }}">
         <a href="{{ route('admin.couriers.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="truck"></i>
           <span class="link-title">Kurir</span>
         </a>
       </li>
       <li class="nav-item nav-category">Pengguna</li>
       <li class="nav-item {{ active_class(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
         <a href="{{ route('admin.users.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="user"></i>
           <span class="link-title">User</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['admin.admins.index', 'admin.admins.create', 'admin.admins.edit']) }}">
         <a href="{{ route('admin.admins.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="box"></i>
+          <i class="link-icon" data-feather="shield"></i>
           <span class="link-title">Admin</span>
         </a>
       </li>
