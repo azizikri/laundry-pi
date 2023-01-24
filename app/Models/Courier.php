@@ -15,4 +15,4 @@ class Courier extends Model
     {
         return $this->hasMany(Order::class);
     }
-}   
+}
