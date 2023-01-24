@@ -36,12 +36,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('qwertyuiop'),
         ]);
 
-        Product::create([
-            'name' => 'Product',
-            'slug' => 'product',
-            'description' => 'Product Description',
-            'price' => 10000000,
-            'image' => 'product.jpg',
+        $this->call([
+            PackageSeeder::class,
         ]);
 
 

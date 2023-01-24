@@ -25,8 +25,6 @@
 </head>
 
 <body>
-    {{-- if route is login --}}
-
     @if (Route::currentRouteName() == 'client.index')
         @include('layouts.header-index')
     @else

@@ -32,7 +32,7 @@
             </div>
 
             <ul class="f-header__list grow basis-0 lg:justify-center">
-                <li class="f-header__item">
+                {{-- <li class="f-header__item">
                     <a href="solutions.html" class="f-header__link">
                         <span>Solutions</span>
                         <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12">
@@ -46,11 +46,11 @@
                         <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Two</a></li>
                         <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Three</a></li>
                     </ul>
-                </li>
-                <li class="f-header__item"><a href="pricing.html" class="f-header__link">Pricing</a></li>
-                <li class="f-header__item"><a href="blog.html" class="f-header__link">Blog</a></li>
-                <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Article</a></li>
-                <li class="f-header__item"><a href="contact.html" class="f-header__link">Contact</a></li>
+                </li> --}}
+                <li class="f-header__item"><a href="{{ route('client.index') }}" class="f-header__link">Home</a></li>
+                <li class="f-header__item"><a href="blog.html" class="f-header__link">Paket</a></li>
+                <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Produk</a></li>
+                <li class="f-header__item"><a href="contact.html" class="f-header__link">Tentang Kami</a></li>
             </ul>
 
             <ul class="f-header__list grow basis-0 lg:justify-end">
@@ -80,7 +80,7 @@
                             </svg>
                         </a>
 
-                        <ul class="f-header__dropdown">
+                        <ul class="f-header__dropdown   ">
                             <li><a href="{{ route('client.profile.edit') }}" class="f-header__dropdown-link leading-tight">Profile</a></li>
                             <li>
                                 <form id="logout-form" action="{{ route('client.logout') }}" method="POST">
