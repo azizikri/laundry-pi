@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Order;
-use App\Models\Package;
 use Illuminate\Support\Facades\Schema;
+use Spatie\LaravelPackageTools\Package;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_package', function (Blueprint $table) {
+        Schema::create('order_service', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Order::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Package::class)->constrained()->cascadeOnDelete();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_package');
+        Schema::dropIfExists('order_service');
     }
 };

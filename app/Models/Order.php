@@ -41,9 +41,9 @@ class Order extends Model
     /**
      * Get the product that owns the order.
      */
-    public function packages()
+    public function services()
     {
-        return $this->belongsToMany(Package::class);
+        return $this->belongsToMany(Service::class);
     }
 
     public function courier()

@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title my-3">Buat Paket</h6>
-                    <form class="forms-sample" action="{{ route('admin.packages.update', $package) }}" method="POST">
+                    <form class="forms-sample" action="{{ route('admin.packages.update', $package) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">

@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- diagonal hero -->
-    <section class="diagonal-section-bottom bg-contrast-lower/50"
+    <section class="bg-contrast-lower/50"
         style="background-image: url('{{ asset('img/hero-diagonal-img-1.jpg') }}');" data-theme="dark">
         <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl py-20 lg:py-32">
             <div class="text-center">
@@ -10,13 +10,13 @@
                     <h1 class="text-shadow-sm text-4xl leading-tight lg:text-6xl lg:leading-tight">
                         <em>{{ config('app.name', 'Laravel') }}</em>
                     </h1>
-                    <p>With just a few clicks, you can schedule pick-up and delivery, track your order, and enjoy fresh, clean clothes delivered right to your door.</p>
+                    <p>Hanya dengan beberapa klik, Anda dapat menjadwalkan pengambilan dan pengiriman, melacak pesanan Anda, dan menikmati pakaian segar dan bersih yang dikirim langsung ke rumah Anda.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center items-center gap-3 lg:gap-5">
-                    <a class="btn btn--primary" href="{{ route('client.login') }}">Getting Started</a>
+                    <a class="btn btn--primary" href="{{ route('client.login') }}">Ayo kita mulai!</a>
 
-                    <a class="link-fx-1 text-contrast-higher" href="https://codyhouse.co/template/virgo">
+                    {{-- <a class="link-fx-1 text-contrast-higher" href="https://codyhouse.co/template/virgo">
                         <span>Learn more</span>
                         <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -25,129 +25,10 @@
                                 <line x1="16" y1="12" x2="22" y2="18" />
                             </g>
                         </svg>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- testimonial -->
-    <section class="testimonial relative z-1 py-20 lg:py-32">
-        <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl">
-            <figure class="flex justify-center mb-5 lg:mb-8 reveal-fx reveal-fx--scale">
-                <img class="block w-24 h-24 rounded-full border-2 border-floor shadow-md"
-                    src="{{ asset('img/testimonial-img-1.jpg') }}" alt="Testimonial picture">
-            </figure>
-
-            <div class="testimonial__block-wrapper mb-8 lg:mb-12">
-                <blockquote class="text-xl lg:text-3xl text-center leading-snug lg:leading-snug">Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid
-                    repellat quasi praesentium, minima nobis assumenda ex?</blockquote>
-
-                <svg class="icon w-[96px] h-[96px] text-contrast-higher opacity-10" aria-hidden="true"
-                    viewBox="0 0 64 64">
-                    <polygon fill="currentColor" points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36" />
-                    <polygon fill="currentColor" points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36" />
-                </svg>
-            </div>
-
-
-            <div class="text-center">
-                <p class="uppercase letter-spacing-md"><strong>Emily Ewing</strong></p>
-                <p class="text-contrast-medium mt-0.5 lg:mt-1">Designer at CompanyX</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- text feature -->
-    <section class="relative z-1 pt-20 lg:pt-32" data-theme="secondary">
-        <div
-            class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl relative z-2">
-            <div class="grid grid-cols-12 gap-5 lg:gap-8">
-                <div class="col-span-12 lg:col-span-4">
-                    <div class="text-sm lg:text-base text-contrast-medium mb-1.5 lg:mb-2">This is a Label</div>
-                    <h1 class="leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
-                </div>
-
-                <div class="col-span-12 lg:col-span-8">
-                    <div class="lg:pl-8">
-                        <div class="text-component">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint tempore repellat earum.
-                                Natus accusantium dolores quas porro delectus corporis explicabo, adipisci eaque,
-                                tempore beatae blanditiis totam iste alias ipsum. Asperiores, temporibus quo.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis tempore officiis
-                                voluptatem et, sequi qui explicabo esse excepturi minus quisquam cupiditate cum
-                                recusandae ad dicta doloribus doloremque omnis inventore ipsa a veritatis laboriosam.
-                                Nostrum numquam nesciunt animi dolore. Sit earum vel illum obcaecati dolorem recusandae
-                                voluptates molestias iure repellendus blanditiis porro aspernatur tempora nam commodi
-                                ipsam ipsum minus nobis omnis pariatur sed dolor fugiat, nulla facilis! Ducimus quasi
-                                dolorum laudantium distinctio cum voluptatibus inventore nostrum, a qui deleniti odit
-                                dicta!</p>
-                        </div>
-
-                        <div class="flex justify-end mt-3 lg:mt-5"><a class="btn btn--subtle" href="#0">Read
-                                more</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <figure class="bg-decoration z-1" aria-hidden="true">
-            <svg class="bg-decoration__svg text-contrast-higher opacity-40" viewBox="0 0 1920 450" fill="none">
-                <rect opacity="0.5" x="610.131" y="-440" width="128" height="836.003"
-                    transform="rotate(46.8712 610.131 -440)" fill="url(#bg-decoration-v1-fx-5-linear-1)" />
-                <rect opacity="0.5" x="1899.13" y="-262" width="128" height="836.003"
-                    transform="rotate(46.8712 1899.13 -262)" fill="url(#bg-decoration-v1-fx-5-linear-2)" />
-                <rect opacity="0.5" x="2076.13" y="-321" width="128" height="836.003"
-                    transform="rotate(46.8712 2076.13 -321)" fill="url(#bg-decoration-v1-fx-5-linear-3)" />
-                <rect opacity="0.5" x="1294.5" y="40.3308" width="128" height="836.003"
-                    transform="rotate(-132.518 1294.5 40.3308)" fill="url(#bg-decoration-v1-fx-5-linear-4)" />
-                <rect opacity="0.5" x="1866.13" y="-453" width="128" height="836.003"
-                    transform="rotate(46.8712 1866.13 -453)" fill="url(#bg-decoration-v1-fx-5-linear-5)" />
-                <rect opacity="0.5" x="800.131" y="-418" width="128" height="836.003"
-                    transform="rotate(46.8712 800.131 -418)" fill="url(#bg-decoration-v1-fx-5-linear-5)" />
-                <rect opacity="0.5" x="436.448" y="-251" width="76.1734" height="340.424"
-                    transform="rotate(46.8712 436.448 -251)" fill="url(#bg-decoration-v1-fx-5-linear-7)" />
-                <defs>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-1" x1="674.131" y1="-440" x2="674.131"
-                        y2="396.003" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-2" x1="1963.13" y1="-262" x2="1963.13"
-                        y2="574.003" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-3" x1="2140.13" y1="-321" x2="2140.13"
-                        y2="515.003" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-4" x1="1358.5" y1="40.3308" x2="1358.5"
-                        y2="876.334" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="1930.13" y1="-453" x2="1930.13"
-                        y2="383.003" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="864.131" y1="-418" x2="864.131"
-                        y2="418.003" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" />
-                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
-                    </linearGradient>
-                    <linearGradient id="bg-decoration-v1-fx-5-linear-7" x1="474.534" y1="-251" x2="474.534"
-                        y2="89.4236" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="currentColor" stop-opacity="0" />
-                        <stop offset="1" stop-color="currentColor" />
-                    </linearGradient>
-                </defs>
-            </svg>
-        </figure>
     </section>
 
     <!-- bi-color feature -->
@@ -157,35 +38,35 @@
                 class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
                 <div class="grid grid-cols-12">
                     <figure class="col-span-12 lg:col-span-6 reveal-fx reveal-fx--clip-x">
-                        <img class="block w-full object-cover" src="{{ asset('img/feature-v10-img-1.jpg') }}"
+                        <img class="block w-full object-cover" src="{{ asset('img/landing-page1.jpg') }}"
                             alt="Image description">
                     </figure>
 
                     <div class="bg-contrast-lower/50 col-span-12 lg:col-span-6">
                         <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
-                            <h2>Abstract</h2>
+                            <h2>Produk</h2>
                             <p class="mt-auto"><a href="#0" class="feature-v10__link"><i
-                                        class="not-italic">Shop Now</i></a></p>
+                                        class="not-italic">Belanja Sekarang</i></a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-floor py-12 lg:py-20 lg:pb-32 lg:pt-0" data-theme="dark">
+        <div class="bg-floor py-12 lg:py-20 lg:pb-32 lg:pt-0" data-theme="secondary">
             <div
                 class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
                 <div class="grid grid-cols-12">
                     <figure class="col-span-12 lg:col-span-6 lg:order-2 reveal-fx reveal-fx--clip-x">
-                        <img class="block w-full object-cover" src="{{ asset('img/feature-v10-img-2.jpg') }}"
+                        <img class="block w-full object-cover" src="{{ asset('img/landing-page3.webp') }}"
                             alt="Image description">
                     </figure>
 
                     <div class="bg-floor-dark col-span-12 lg:col-span-6 lg:order-1">
                         <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
-                            <h2>Geometry</h2>
+                            <h2>Servis Cuci Sepatu</h2>
                             <p class="mt-auto"><a href="#0" class="feature-v10__link"><i
-                                        class="not-italic">Shop Now</i></a></p>
+                                        class="not-italic">Pesan Sekarang</i></a></p>
                         </div>
                     </div>
                 </div>
@@ -194,7 +75,7 @@
     </section>
 
     <!-- devices -->
-    <section class="relative z-1 py-12 lg:py-20" data-theme="dark">
+    {{-- <section class="relative z-1 py-12 lg:py-20" data-theme="dark">
         <div
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl relative z-2">
             <div class="grid grid-cols-12 gap-y-8 lg:gap-12 items-center">
@@ -291,10 +172,10 @@
                 </defs>
             </svg>
         </figure>
-    </section>
+    </section> --}}
 
     <!-- CTA -->
-    <section class="relative z-1 pt-12 lg:pt-20">
+    {{-- <section class="relative z-1 pt-12 lg:pt-20">
         <div
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
             <h1 class="sr-only">Join us</h1>
@@ -311,10 +192,10 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- list -->
-    <section class="my-12 lg:my-20">
+    {{-- <section class="my-12 lg:my-20">
         <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-3xl">
             <ol class="list-v2 list-v2--ol">
                 <li>
@@ -370,10 +251,10 @@
                 </li>
             </ol>
         </div>
-    </section>
+    </section> --}}
 
     <!-- sticky hero -->
-    <section class="sticky-hero sticky-hero--scale mb-12 lg:mb-20 js-sticky-hero">
+    {{-- <section class="sticky-hero sticky-hero--scale mb-12 lg:mb-20 js-sticky-hero">
         <div class="sticky-hero__media" style="background-image: url('{{ asset('img/sticky-hero-img-1.jpg') }}');"
             aria-hidden="true"></div>
 
@@ -399,10 +280,10 @@
                     tenetur, doloremque sit ad dolores consequatur corrupti quae culpa? Officia!</p>
             </article>
         </div>
-    </section>
+    </section> --}}
 
     <!-- newsletter -->
-    <section class="newsletter py-20 lg:py-32 text-center" data-theme="soft">
+    {{-- <section class="newsletter py-20 lg:py-32 text-center" data-theme="soft">
         <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-xl relative z-2">
             <div class="text-component mb-5 lg:mb-8">
                 <h2>Join <em>our</em> Newsletter</h2>
@@ -481,5 +362,5 @@
                 </defs>
             </svg>
         </figure>
-    </section>
+    </section> --}}
 </x-app-layout>

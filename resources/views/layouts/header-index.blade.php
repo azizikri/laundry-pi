@@ -48,7 +48,7 @@
                     </ul>
                 </li> --}}
                 <li class="f-header__item"><a href="{{ route('client.index') }}" class="f-header__link">Home</a></li>
-                <li class="f-header__item"><a href="blog.html" class="f-header__link">Paket</a></li>
+                <li class="f-header__item"><a href="{{ route('client.services.index') }}" class="f-header__link">Servis</a></li>
                 <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Produk</a></li>
                 <li class="f-header__item"><a href="contact.html" class="f-header__link">Tentang Kami</a></li>
             </ul>

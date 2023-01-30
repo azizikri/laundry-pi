@@ -3,7 +3,7 @@
         <div
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
             <div class="text-component text-center mb-12 lg:mb-20">
-                <h1>Paket Kami</h1>
+                <h1>Servis Kami</h1>
                 <p class="text-contrast-medium">Dipilih sesuai kebutuhan bray...</p>
             </div>
 
@@ -11,37 +11,29 @@
                 <div class="flex justify-center mb-5 lg:mb-8">
 
                     <div class="grid grid-cols-12 gap-3 lg:gap-5">
-                        @forelse ($packages as $package)
+                        @forelse ($services as $service)
                             <div class="p-table__item col-span-12 lg:col-span-4">
                                 <div class="mb-1.5 lg:mb-2">
-                                    <h4 class="p-table__title">{{ $package->name }}</h4>
+                                    <h4 class="p-table__title">{{ $service->name }}</h4>
                                 </div>
 
                                 <div class="p-table__price-wrapper mb-3 lg:mb-5">
                                     <div class="p-table__price p-table__price">
-                                        Rp.<span>
-                                            @if ($package->price >= 1000000000)
-                                                {{ number_format($package->price / 1000000000) }} M
-                                            @elseif($package->price >= 1000000)
-                                                {{ number_format($package->price / 1000000) }} Jt
-                                            @elseif($package->price >= 1000)
-                                                {{ number_format($package->price / 1000) }} Rb
-                                            @else
-                                                {{ number_format($package->price) }}
-                                            @endif
-                                        </span></div>
+                                        <figure class="prod-card__img ">
+                                            <img src="{{ $service->image() }}" alt="Product preview image">
+                                          </figure>
+                                    </div>
                                 </div>
 
                                 <ul class="p-table__features mb-5 lg:mb-8">
-                                    <li>{{ $package->kg }} kg</li>
                                     <li>
                                         <p>
-                                            {{ $package->description }}
+                                            {{ $service->description }}
                                         </p>
                                     </li>
                                 </ul>
 
-                                <div class="mt-auto"><a href="#0" class="btn btn--primary btn--md w-full">Pesan</a></div>
+                                <div class="mt-auto"><a href="#0" class="btn btn--primary btn--md w-full">Rp. {{ $service->price }}</a></div>
 
                             </div>
                         @empty
@@ -51,7 +43,7 @@
                 </div>
             </div>
     </section>
-{{-- 
+{{--
     <section class="relative z-1 py-20 lg:py-32" data-theme="soft">
         <div
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl relative z-2">
@@ -150,3 +142,4 @@
         </figure>
     </section> --}}
 </x-app-layout>
+

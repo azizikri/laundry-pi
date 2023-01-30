@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Package;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
-class PackageController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,10 +15,10 @@ class PackageController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $packages = Package::orderBy('price')->get();
+        $services = Service::orderBy('price')->get();
 
-        return view('packages', [
-            'packages' => $packages,
+        return view('services', [
+            'services' => $services,
         ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CourierController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -24,7 +25,8 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 
     Route::resource('products', ProductController::class)->except(['show']);
-    Route::resource('packages', PackageController::class)->except(['show']);
+    // Route::resource('packages', PackageController::class)->except(['show']);
+    Route::resource('services', ServiceController::class)->except(['show']);
     Route::resource('couriers', CourierController::class)->except(['show']);
     Route::resource('users', UserController::class);
     Route::resource('admins', AdminController::class)->except(['show']);

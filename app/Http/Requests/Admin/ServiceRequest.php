@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PackageRequest extends FormRequest
+class ServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class PackageRequest extends FormRequest
             'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
             'price' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
             'description' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
-            'kg' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
+            'image' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
     }
 }

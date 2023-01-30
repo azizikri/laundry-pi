@@ -3,7 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -19,7 +19,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', IndexController::class)->name('index');
-Route::get('/paket', PackageController::class)->name('packages.index');
+Route::get('/servis', ServiceController::class)->name('services.index');
 Route::get('/produk', ProductController::class)->name('products.index');
 Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
 

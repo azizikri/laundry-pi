@@ -38,10 +38,10 @@
           <span class="link-title">Produk</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['admin.packages.index', 'admin.packages.create', 'admin.packages.edit']) }}">
-        <a href="{{ route('admin.packages.index')}}" class="nav-link">
+      <li class="nav-item {{ active_class(['admin.services.index', 'admin.services.create', 'admin.services.edit']) }}">
+        <a href="{{ route('admin.services.index')}}" class="nav-link">
           <i class="link-icon" data-feather="shopping-bag"></i>
-          <span class="link-title">Paket</span>
+          <span class="link-title">Servis</span>
         </a>
       </li>
       <li class="nav-item nav-category">Ekspedisi</li>
