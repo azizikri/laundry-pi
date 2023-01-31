@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Package;
+use App\Models\Service;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +22,7 @@ class DashboardController extends Controller
     {
         $userCount = User::count();
         $productCount = Product::count();
-        $packageCount = Package::count();
+        $serviceCount = Service::count();
         $courierCount = Courier::count();
         $totalOrderCount = Order::count();
         $orderCompletedCount = Order::where('status', 'completed')->count();
@@ -31,7 +31,7 @@ class DashboardController extends Controller
         return view('admin.dashboard', [
             'userCount' => $userCount,
             'productCount' => $productCount,
-            'packageCount' => $packageCount,
+            'serviceCount' => $serviceCount,
             'courierCount' => $courierCount,
             'totalOrderCount' => $totalOrderCount,
             'orderCompletedCount' => $orderCompletedCount,

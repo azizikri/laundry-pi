@@ -7,18 +7,19 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
+    public function index()
     {
-        $services = Service::orderBy('price')->get();
+        $services = Service::orderBy('price')->paginate(6);
 
-        return view('services', [
+        return view('services.index', [
             'services' => $services,
+        ]);
+    }
+
+    public function show(Service $service)
+    {
+        return view('services.show', [
+            'service' => $service,
         ]);
     }
 }

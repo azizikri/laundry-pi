@@ -17,8 +17,8 @@
         rel="stylesheet">
     <!-- end google fonts -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/favicon.svg') }}">
-    <link rel="stylesheet" href="{{ asset('css/output.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/output.css') }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 

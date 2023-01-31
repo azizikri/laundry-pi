@@ -19,8 +19,17 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', IndexController::class)->name('index');
-Route::get('/servis', ServiceController::class)->name('services.index');
-Route::get('/produk', ProductController::class)->name('products.index');
+
+Route::prefix('servis')->name('services.')->group(function () {
+    Route::get('/', [ServiceController::class, 'index'])->name('index');
+    Route::get('/{service}', [ServiceController::class, 'show'])->name('show');
+});
+
+Route::prefix('produk')->name('products.')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('index');
+    Route::get('/{product}', [ProductController::class, 'show'])->name('show');
+});
+
 Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
 
 // Route::get('/dashboard', function () {

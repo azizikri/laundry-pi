@@ -6753,6 +6753,69 @@ Usage: codyhouse.co/license
 
 /* --------------------------------
 
+File#: 1_product-card
+Title: Product Card
+Descr: A selection of product information used as teasers for further content
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.prod-card {
+    position: relative;
+  }
+
+  .prod-card__img-link {
+    text-decoration: none;
+    display: block;
+  }
+  .prod-card__img-link:hover .prod-card__img {
+    opacity: 0.85;
+  }
+
+  .prod-card__img {
+    transition: opacity 0.2s;
+  }
+  .prod-card__img img {
+    display: block;
+    width: 100%;
+  }
+
+  .prod-card__badge {
+    position: absolute;
+    z-index: 1;
+    @apply top-2 lg:top-3;
+    @apply right-2 lg:right-3;
+    @apply bg-floor/95;
+    @apply py-1.5 lg:py-2 px-3 lg:px-5;
+    @apply text-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    @apply text-contrast-high;
+    font-weight: 500;
+  }
+
+  .prod-card__price--old {
+    @apply text-accent;
+    text-decoration: line-through;
+  }
+  .prod-card__price--old::before {
+    content: "original price";
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+  }
+
+  .prod-card__price--new {
+    text-decoration: none;
+  }
+  .prod-card__price--new::before {
+    content: "discounted price";
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+  }
+
+/* --------------------------------
+
 File#: _2_sticky-sharebar
 Title: Sticky Sharebar
 Descr: Sticky social sharing bar
