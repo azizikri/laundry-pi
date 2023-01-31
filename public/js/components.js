@@ -7,7 +7,7 @@
 		this.version = this.element.getAttribute('data-version') ? '-'+this.element.getAttribute('data-version') : '';
 		this.showClass = 'accordion'+this.version+'__item--is-open';
 		this.animateHeight = (this.element.getAttribute('data-animation') == 'on');
-		this.multiItems = !(this.element.getAttribute('data-multi-items') == 'off'); 
+		this.multiItems = !(this.element.getAttribute('data-multi-items') == 'off');
 		// deep linking options
 		this.deepLinkOn = this.element.getAttribute('data-deep-link') == 'on';
 		// init accordion
@@ -68,7 +68,7 @@
 	Accordion.prototype.resetContentVisibility = function(item, content, bool) {
 		Util.toggleClass(item, this.showClass, !bool);
 		content.removeAttribute("style");
-		if(bool && !this.multiItems) { // accordion item has been closed -> check if there's one open to move inside viewport 
+		if(bool && !this.multiItems) { // accordion item has been closed -> check if there's one open to move inside viewport
 			this.moveContent();
 		}
 	};
@@ -106,7 +106,7 @@
 	};
 
 	window.Accordion = Accordion;
-	
+
 	//initialize the Accordion objects
 	var accordions = document.getElementsByClassName('js-accordion');
 	if( accordions.length > 0 ) {
@@ -125,7 +125,7 @@
 		})(i);}
 
 		function initMenuBtn(btn) {
-			btn.addEventListener('click', function(event){	
+			btn.addEventListener('click', function(event){
 				event.preventDefault();
 				var status = !Util.hasClass(btn, 'anim-menu-btn--state-b');
 				Util.toggleClass(btn, 'anim-menu-btn--state-b', status);
@@ -182,7 +182,7 @@ function initContactMap(wrapper) {
       resetSection(element);
     });
 
-    // detect when the element is sticky - update scale value and opacity layer 
+    // detect when the element is sticky - update scale value and opacity layer
     var observer = new IntersectionObserver(immerseSectionTrCallback.bind(element));
     observer.observe(element.media[0]);
   };
@@ -193,7 +193,7 @@ function initContactMap(wrapper) {
     if(element.active) {
       Util.removeClass(element.element, 'immerse-section-tr--disabled');
       updateMediaHeight(element);
-      getMediaScale(element); 
+      getMediaScale(element);
       updateMargin(element);
       setScaleValue.bind(element)();
     } else {
@@ -322,7 +322,7 @@ function initContactMap(wrapper) {
     if(immerseSectionsArray.length > 0) {
       var resizingId = false,
         customEvent = new CustomEvent('update-immerse-section');
-      
+
       window.addEventListener('resize', function() {
         clearTimeout(resizingId);
         resizingId = setTimeout(doneResizing, 500);
@@ -458,11 +458,11 @@ function initContactMap(wrapper) {
 		} else if( (event.keyCode && event.keyCode == 13 || event.key && event.key == 'Enter') && event.target.closest('.js-modal__close')) {
 			event.preventDefault();
 			this.closeModal(); // close modal when pressing Enter on close button
-		}	
+		}
 	};
 
 	Modal.prototype.initClick = function(event) {
-		//close modal when clicking on close button or modal bg layer 
+		//close modal when clicking on close button or modal bg layer
 		if( !event.target.closest('.js-modal__close') && !Util.hasClass(event.target, 'js-modal') ) return;
 		event.preventDefault();
 		this.closeModal();
@@ -571,7 +571,7 @@ function initContactMap(wrapper) {
       }
     });
   };
-  
+
   var noticeElements = document.getElementsByClassName('js-notice');
   if(noticeElements.length > 0) {
     for(var i=0; i < noticeElements.length; i++) {(function(i){
@@ -584,7 +584,7 @@ function initContactMap(wrapper) {
 (function() {
   var readingIndicator = document.getElementsByClassName('js-reading-progressbar')[0],
 		readingIndicatorContent = document.getElementsByClassName('js-reading-content')[0];
-  
+
   if( readingIndicator && readingIndicatorContent) {
     var progressInfo = [],
       progressEvent = false,
@@ -599,7 +599,7 @@ function initContactMap(wrapper) {
     progressInfo['window'] = window.innerHeight;
     progressInfo['class'] = 'reading-progressbar--is-active';
     progressInfo['hideClass'] = 'reading-progressbar--is-out';
-    
+
     //init indicator
     setProgressIndicator();
     // wait for font to be loaded - reset progress bar
@@ -619,7 +619,7 @@ function initContactMap(wrapper) {
       progressEvent = true;
       (!window.requestAnimationFrame) ? setTimeout(function(){setProgressIndicator();}, 250) : window.requestAnimationFrame(setProgressIndicator);
     });
-    
+
     function setProgressIndicator() {
       var boundingClientRect = readingIndicatorContent.getBoundingClientRect();
       progressInfo['top'] = boundingClientRect.top;
@@ -672,14 +672,14 @@ function initContactMap(wrapper) {
 		}
 
 		var fxRevealDelta = 120; // amount (in pixel) the element needs to enter the viewport to be revealed - if not custom value (data-reveal-fx-delta)
-		
+
 		var viewportHeight = window.innerHeight,
 			fxChecking = false,
 			fxRevealedItems = [],
 			fxElementDelays = fxGetDelays(), //elements animation delay
-			fxElementDeltas = fxGetDeltas(); // amount (in px) the element needs enter the viewport to be revealed (default value is fxRevealDelta) 
-		
-		
+			fxElementDeltas = fxGetDeltas(); // amount (in px) the element needs enter the viewport to be revealed (default value is fxRevealDelta)
+
+
 		// add event listeners
 		window.addEventListener('load', fxReveal);
 		window.addEventListener('resize', fxResize);
@@ -692,15 +692,15 @@ function initContactMap(wrapper) {
 		function initObserver() {
 			for(var i = 0; i < fxElements.length; i++) {
 				observer[i] = new IntersectionObserver(
-					function(entries, observer) { 
+					function(entries, observer) {
 						if(entries[0].isIntersecting) {
 							fxRevealItemObserver(entries[0].target);
 							observer.unobserve(entries[0].target);
 						}
-					}, 
+					},
 					{rootMargin: "0px 0px -"+fxElementDeltas[i]+"px 0px"}
 				);
-	
+
 				observer[i].observe(fxElements[i]);
 			}
 		};
@@ -728,9 +728,9 @@ function initContactMap(wrapper) {
 				if(fxElementIsVisible(fxElements[i], i)) {
 					fxRevealItem(i);
 					fxRevealedItems.push(i);
-				}})(i); 
+				}})(i);
 			}
-			fxResetEvents(); 
+			fxResetEvents();
 			fxChecking = false;
 		};
 
@@ -750,7 +750,7 @@ function initContactMap(wrapper) {
 			if(fxRevealedItems.indexOf(index) != -1 ) return; //element has already been revelead
 			fxRevealItem(index);
 			fxRevealedItems.push(index);
-			fxResetEvents(); 
+			fxResetEvents();
 			fxChecking = false;
 		};
 
@@ -782,7 +782,7 @@ function initContactMap(wrapper) {
 			return element.getBoundingClientRect().top;
 		};
 
-		function fxResetEvents() { 
+		function fxResetEvents() {
 			if(fxElements.length > fxRevealedItems.length) return;
 			// remove event listeners if all elements have been revealed
 			window.removeEventListener('load', fxReveal);
@@ -868,7 +868,7 @@ function initContactMap(wrapper) {
       var paramValue = button.getAttribute('data-'+params[i]);
       if(params[i] == 'hashtags') paramValue = encodeURI(paramValue.replace(/\#| /g, ''));
       if(paramValue) {
-        (social == 'facebook') 
+        (social == 'facebook')
           ? newUrl = newUrl + 'u='+encodeURIComponent(paramValue)+'&'
           : newUrl = newUrl + params[i]+'='+encodeURIComponent(paramValue)+'&';
       }
@@ -967,7 +967,7 @@ function initContactMap(wrapper) {
     if(entries[0].isIntersecting) {
       Util.addClass(this.sections[index], this.animationClass);
       observer.unobserve(this.sections[index]);
-    } 
+    }
   };
 
   //initialize the VTimeline objects
@@ -989,7 +989,7 @@ function initContactMap(wrapper) {
 		var menuTrigger = flexHeader[0].getElementsByClassName('js-anim-menu-btn')[0],
 			firstFocusableElement = getMenuFirstFocusable();
 
-		// we'll use these to store the node that needs to receive focus when the mobile menu is closed 
+		// we'll use these to store the node that needs to receive focus when the mobile menu is closed
 		var focusMenu = false;
 
 		resetFlexHeaderOffset();
@@ -1063,7 +1063,7 @@ function initContactMap(wrapper) {
 
 			return firstFocusable;
     };
-    
+
     function isVisible(element) {
       return (element.offsetWidth || element.offsetHeight || element.getClientRects().length);
 		};
@@ -1074,7 +1074,7 @@ function initContactMap(wrapper) {
 			}
 			resetFlexHeaderOffset();
 		};
-		
+
 		function toggleMenuNavigation(bool) { // toggle menu visibility on small devices
 			Util.toggleClass(document.getElementsByClassName('f-header__nav')[0], 'f-header__nav--is-visible', bool);
 			Util.toggleClass(flexHeader[0], 'f-header--expanded', bool);
@@ -1101,7 +1101,7 @@ function initContactMap(wrapper) {
 				} else {
 					dropdown.setAttribute('id', id);
 				}
-				btnDropdown[i].setAttribute('aria-controls', id);	
+				btnDropdown[i].setAttribute('aria-controls', id);
 			}
 		};
 
@@ -1175,10 +1175,10 @@ function initContactMap(wrapper) {
 
   function initObserver(shareBar) { // target of Sharebar
     var observer = new IntersectionObserver(
-      function(entries, observer) { 
+      function(entries, observer) {
         shareBar.showSharebar = entries[0].isIntersecting;
         toggleSharebar(shareBar);
-      }, 
+      },
       {rootMargin: "0px 0px -"+shareBar.threshold+" 0px"}
     );
     observer.observe(shareBar.contentTarget[0]);
@@ -1190,7 +1190,7 @@ function initContactMap(wrapper) {
       return;
     }
     var observer = new IntersectionObserver(
-      function(entries, observer) { 
+      function(entries, observer) {
         shareBar.hideSharebar = entries[0].isIntersecting;
         toggleSharebar(shareBar);
       }
@@ -1205,10 +1205,149 @@ function initContactMap(wrapper) {
   //initialize the StickyShareBar objects
   var stickyShareBar = document.getElementsByClassName('js-sticky-sharebar'),
     intersectionObserverSupported = ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype);
-  
+
 	if( stickyShareBar.length > 0 ) {
 		for( var i = 0; i < stickyShareBar.length; i++) {
 			(function(i){ new StickyShareBar(stickyShareBar[i]); })(i);
     }
 	}
+}());
+
+// File#: _1_swipe-content
+(function() {
+  var SwipeContent = function(element) {
+    this.element = element;
+    this.delta = [false, false];
+    this.dragging = false;
+    this.intervalId = false;
+    initSwipeContent(this);
+  };
+
+  function initSwipeContent(content) {
+    content.element.addEventListener('mousedown', handleEvent.bind(content));
+    content.element.addEventListener('touchstart', handleEvent.bind(content), {passive: true});
+  };
+
+  function initDragging(content) {
+    //add event listeners
+    content.element.addEventListener('mousemove', handleEvent.bind(content));
+    content.element.addEventListener('touchmove', handleEvent.bind(content), {passive: true});
+    content.element.addEventListener('mouseup', handleEvent.bind(content));
+    content.element.addEventListener('mouseleave', handleEvent.bind(content));
+    content.element.addEventListener('touchend', handleEvent.bind(content));
+  };
+
+  function cancelDragging(content) {
+    //remove event listeners
+    if(content.intervalId) {
+      (!window.requestAnimationFrame) ? clearInterval(content.intervalId) : window.cancelAnimationFrame(content.intervalId);
+      content.intervalId = false;
+    }
+    content.element.removeEventListener('mousemove', handleEvent.bind(content));
+    content.element.removeEventListener('touchmove', handleEvent.bind(content));
+    content.element.removeEventListener('mouseup', handleEvent.bind(content));
+    content.element.removeEventListener('mouseleave', handleEvent.bind(content));
+    content.element.removeEventListener('touchend', handleEvent.bind(content));
+  };
+
+  function handleEvent(event) {
+    switch(event.type) {
+      case 'mousedown':
+      case 'touchstart':
+        startDrag(this, event);
+        break;
+      case 'mousemove':
+      case 'touchmove':
+        drag(this, event);
+        break;
+      case 'mouseup':
+      case 'mouseleave':
+      case 'touchend':
+        endDrag(this, event);
+        break;
+    }
+  };
+
+  function startDrag(content, event) {
+    content.dragging = true;
+    // listen to drag movements
+    initDragging(content);
+    content.delta = [parseInt(unify(event).clientX), parseInt(unify(event).clientY)];
+    // emit drag start event
+    emitSwipeEvents(content, 'dragStart', content.delta, event.target);
+  };
+
+  function endDrag(content, event) {
+    cancelDragging(content);
+    // credits: https://css-tricks.com/simple-swipe-with-vanilla-javascript/
+    var dx = parseInt(unify(event).clientX),
+      dy = parseInt(unify(event).clientY);
+
+    // check if there was a left/right swipe
+    if(content.delta && (content.delta[0] || content.delta[0] === 0)) {
+      var s = getSign(dx - content.delta[0]);
+
+      if(Math.abs(dx - content.delta[0]) > 30) {
+        (s < 0) ? emitSwipeEvents(content, 'swipeLeft', [dx, dy]) : emitSwipeEvents(content, 'swipeRight', [dx, dy]);
+      }
+
+      content.delta[0] = false;
+    }
+    // check if there was a top/bottom swipe
+    if(content.delta && (content.delta[1] || content.delta[1] === 0)) {
+    	var y = getSign(dy - content.delta[1]);
+
+    	if(Math.abs(dy - content.delta[1]) > 30) {
+      	(y < 0) ? emitSwipeEvents(content, 'swipeUp', [dx, dy]) : emitSwipeEvents(content, 'swipeDown', [dx, dy]);
+      }
+
+      content.delta[1] = false;
+    }
+    // emit drag end event
+    emitSwipeEvents(content, 'dragEnd', [dx, dy]);
+    content.dragging = false;
+  };
+
+  function drag(content, event) {
+    if(!content.dragging) return;
+    // emit dragging event with coordinates
+    (!window.requestAnimationFrame)
+      ? content.intervalId = setTimeout(function(){emitDrag.bind(content, event);}, 250)
+      : content.intervalId = window.requestAnimationFrame(emitDrag.bind(content, event));
+  };
+
+  function emitDrag(event) {
+    emitSwipeEvents(this, 'dragging', [parseInt(unify(event).clientX), parseInt(unify(event).clientY)]);
+  };
+
+  function unify(event) {
+    // unify mouse and touch events
+    return event.changedTouches ? event.changedTouches[0] : event;
+  };
+
+  function emitSwipeEvents(content, eventName, detail, el) {
+    var trigger = false;
+    if(el) trigger = el;
+    // emit event with coordinates
+    var event = new CustomEvent(eventName, {detail: {x: detail[0], y: detail[1], origin: trigger}});
+    content.element.dispatchEvent(event);
+  };
+
+  function getSign(x) {
+    if(!Math.sign) {
+      return ((x > 0) - (x < 0)) || +x;
+    } else {
+      return Math.sign(x);
+    }
+  };
+
+  window.SwipeContent = SwipeContent;
+
+  //initialize the SwipeContent objects
+  var swipe = document.getElementsByClassName('js-swipe-content');
+  if( swipe.length > 0 ) {
+    for( var i = 0; i < swipe.length; i++) {
+      (function(i){new SwipeContent(swipe[i]);})(i);
+    }
+  }
 }());

@@ -8033,3 +8033,37 @@ Usage: codyhouse.co/license
     width: 50%;
   }
 }
+
+/* --------------------------------
+
+File#: 1_breadcrumbs
+Title: Breadcrumbs
+Descr: List of links to help the user move within website structure
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.breadcrumbs__item {
+  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --------------------------------
+
+File#: 1_swipe-content
+Title: Swipe Content
+Descr: A Vanilla JavaScript plugin to detect touch interactions
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.swipe-content {
+    height: 280px;
+    width: 280px;
+    @apply bg-contrast-low;
+    @apply rounded;
+    cursor: default;
+    transition: background 0.2s;
+  }
+  .swipe-content:active {
+    @apply bg-contrast-medium;
+  }

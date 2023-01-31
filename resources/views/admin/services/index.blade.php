@@ -42,7 +42,7 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Berat Cuci</th>
+                                    <th>Gambar</th>
                                     <th>Harga</th>
                                     <th>Deskripsi</th>
                                     <th>Aksi</th>

@@ -22,10 +22,10 @@
 
                                 <div class="p-table__price-wrapper mb-3 lg:mb-5">
                                     <div class="p-table__price p-table__price">
-                                        <a class="prod-card__img-link" href="#0"
+                                        <a class="prod-card__img-link" href="{{ route('client.services.show', $service) }}"
                                             aria-label="Description of the link">
                                             <figure class="prod-card__img ">
-                                                <img src="{{ $product->image() }}"
+                                                <img src="{{ $service->image() }}"
                                                     alt="Product preview image">
                                             </figure>
                                         </a>
