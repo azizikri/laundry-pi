@@ -19,6 +19,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/favicon.svg') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/output.css') }}">
+    <link href="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" />
     @stack('styles')
 
 
@@ -37,8 +38,10 @@
 
     @include('layouts.footer')
 
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
     <script src="{{ asset('js/components.js') }}"></script>
+    @include('layouts.alert')
     @stack('scripts')
 </body>
 

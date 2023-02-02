@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Service;
-use App\Models\Product;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Courier;
+use App\Models\Product;
+use App\Models\Service;
+use Illuminate\Http\Request;
+use App\Enum\Order\OrderStatus;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -24,7 +25,8 @@ class DashboardController extends Controller
         $productCount = Product::count();
         $serviceCount = Service::count();
         $totalOrderCount = Order::count();
-        $orderCompletedCount = Order::where('status', 'completed')->count();
+        $orderCompletedCount = Order::where('order_status', OrderStatus::COMPLETED)->count();
+        $pendingOrders = Order::where('order_status', OrderStatus::PENDING)->get();
 
 
         return view('admin.dashboard', [
@@ -33,6 +35,7 @@ class DashboardController extends Controller
             'serviceCount' => $serviceCount,
             'totalOrderCount' => $totalOrderCount,
             'orderCompletedCount' => $orderCompletedCount,
+            'pendingOrders' => $pendingOrders,
         ]);
     }
 }

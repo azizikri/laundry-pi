@@ -40,7 +40,8 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product add to cart successfully!');
+        session()->flash('success', 'Berhasil menambahkan barang ke keranjang!');
+
     }
 
     public function update(Request $request)
@@ -49,7 +50,7 @@ class CartController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Cart successfully updated!');
+            session()->flash('success', 'Berhasil mengubah barang di keranjang!');
         }
     }
 
@@ -61,13 +62,13 @@ class CartController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Product successfully removed!');
+            session()->flash('success', 'Barang berhasil di hapus!');
         }
     }
 
     public function clear()
     {
         session()->forget('cart');
-        return redirect()->back()->with('success', 'Cart is clear!');
+        return redirect()->back()->with('success', 'Keranjang berhasil dibersihkan!');
     }
 }

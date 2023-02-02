@@ -87,7 +87,6 @@
     </section>
 
     @push('scripts')
-        <script src="{{ asset('assets/js/jquery.js') }}"></script>
         <script>
             function removeItemCart(e) {
                 e.preventDefault();
@@ -102,6 +101,7 @@
                         "id": id,
                     },
                     success: function(data) {
+                        // warp showswal with location reload
                         location.reload();
                     },
                 });
@@ -116,7 +116,9 @@
                         quantity: quantity,
                         _token: '{{ csrf_token() }}'
                     },
-                    success: function(response) {}
+                    success: function(response) {
+                        location.reload();
+                    }
                 });
             }
 

@@ -150,7 +150,6 @@
     </section>
 
     @push('scripts')
-        <script src="{{ asset('assets/js/jquery.js') }}"></script>
         <script>
             function addToCart(e) {
                 e.preventDefault();

@@ -1,6 +1,6 @@
 <x-app-layout>
     @push('styles')
-        <link href="{{ asset('assets/dropify/css/dropify.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet" />
     @endpush
     <!-- diagonal hero -->
     <section class="-contrast-lower/50">
@@ -191,8 +191,7 @@
 
     </section>
     @push('scripts')
-        <script src="{{ asset('assets/js/jquery.js') }}"></script>
-        <script src="{{ asset('assets/dropify/js/dropify.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
 
         <script>
             $(function() {
