@@ -83,6 +83,14 @@
                         <ul class="f-header__dropdown   ">
                             <li><a href="{{ route('client.profile.edit') }}" class="f-header__dropdown-link leading-tight">Profile</a></li>
                             <li>
+                                <a href="{{ route('client.cart.index') }}" class="f-header__dropdown-link leading-tight">
+                                    Cart
+                                    <span class="cart-count text-xs font-medium ml-2 text-white rounded-full px-2">
+                                        {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
                                 <form id="logout-form" action="{{ route('client.logout') }}" method="POST">
                                     @csrf
                                     <a href="{{ route('client.logout') }}"

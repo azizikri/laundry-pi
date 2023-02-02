@@ -48,8 +48,10 @@
                     </ul>
                 </li> --}}
                 <li class="f-header__item"><a href="{{ route('client.index') }}" class="f-header__link">Home</a></li>
-                <li class="f-header__item"><a href="{{ route('client.services.index') }}" class="f-header__link">Servis</a></li>
-                <li class="f-header__item"><a href="{{ route('client.products.index') }}" class="f-header__link">Produk</a></li>
+                <li class="f-header__item"><a href="{{ route('client.services.index') }}"
+                        class="f-header__link">Servis</a></li>
+                <li class="f-header__item"><a href="{{ route('client.products.index') }}"
+                        class="f-header__link">Produk</a></li>
                 <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Tentang Kami</a></li>
                 </li>
             </ul>
@@ -81,7 +83,15 @@
                         <ul class="f-header__dropdown">
                             <li><a href="{{ route('client.profile.edit') }}"
                                     class="f-header__dropdown-link leading-tight">Profile</a></li>
-                            <li><a href="#" class="f-header__dropdown-link leading-tight">Cart</a></li>
+                            <li>
+                                <a href="{{ route('client.cart.index') }}" class="f-header__dropdown-link leading-tight">
+                                    Cart
+                                    <span class="cart-count text-xs font-medium ml-2 text-white rounded-full px-2">
+                                        {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
+                                    </span>
+                                </a>
+                            </li>
+
                             <li>
                                 <form id="logout-form" action="{{ route('client.logout') }}" method="POST">
                                     @csrf

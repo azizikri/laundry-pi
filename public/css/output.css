@@ -8067,3 +8067,7 @@ Usage: codyhouse.co/license
   .swipe-content:active {
     @apply bg-contrast-medium;
   }
+
+  .cart-count {
+    background-color: hsl(var(--color-accent));
+  }

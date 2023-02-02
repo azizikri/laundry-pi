@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,11 @@ Route::prefix('produk')->name('products.')->group(function () {
 });
 
 Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
+
+Route::get('/keranjang', [CartController::class, 'index'])->name('cart.index');
+Route::post('/keranjang', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/keranjang/kosongkan', [CartController::class, 'clear'])->name('cart.clear');
+Route::post('/keranjang/hapus', [CartController::class, 'remove'])->name('cart.remove');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

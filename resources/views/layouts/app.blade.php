@@ -37,6 +37,7 @@
 
     <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
     <script src="{{ asset('js/components.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
