@@ -29,7 +29,9 @@
                                             {{ $item['type'] }}
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
-                                            {{ $item['quantity'] }}
+                                            <input type="number"
+                                                class="form-input w-20 text-center quantity cart_update" min="1"
+                                                value="{{ $item['quantity'] }}" onchange="updateCart('{{ $id }}', this.value)">
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
                                             Rp. {{ $item['price'] }}
@@ -94,6 +96,20 @@
                     success: function(data) {
                         location.reload();
                     },
+                });
+            }
+
+            function updateCart(id, quantity) {
+                $.ajax({
+                    url: "{{ route('client.cart.update') }}",
+                    type: 'patch',
+                    data: {
+                        id: id,
+                        quantity: quantity,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                    }
                 });
             }
 

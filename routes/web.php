@@ -42,9 +42,10 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-        
+
         Route::get('/keranjang', [CartController::class, 'index'])->name('cart.index');
         Route::post('/keranjang', [CartController::class, 'addToCart'])->name('cart.add');
+        Route::patch('keranjang/update', [CartController::class, 'update'])->name('cart.update');
         Route::get('/keranjang/kosongkan', [CartController::class, 'clear'])->name('cart.clear');
         Route::post('/keranjang/hapus', [CartController::class, 'remove'])->name('cart.remove');
 });
