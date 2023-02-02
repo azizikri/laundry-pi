@@ -46,7 +46,7 @@
                                     @endguest
                                     @auth
                                         <button type="submit" class="btn btn--primary btn--md w-full cart-add"
-                                            data-id="{{ $product->slug }}1" data-name="{{ $product->name }}"
+                                            data-id="{{ $product->slug }}" data-itemid="{{ $product->id }}" data-name="{{ $product->name }}"
                                             data-image="{{ $product->image }}" data-price="{{ $product->price }}">
                                             Tambahkan ke keranjang
                                         </button>
@@ -156,6 +156,7 @@
                 e.preventDefault();
 
                 let id = $(this).data('id');
+                let item_id = $(this).data('itemid');
                 let name = $(this).data('name');
                 let type = 'Produk';
                 let image = $(this).data('image');
@@ -167,6 +168,7 @@
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": id,
+                        "item_id": item_id,
                         "name": name,
                         "type": type,
                         "image": image,

@@ -19,6 +19,8 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/favicon.svg') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/output.css') }}">
+    @stack('styles')
+
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 

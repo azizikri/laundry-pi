@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +49,13 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
         Route::patch('keranjang/update', [CartController::class, 'update'])->name('cart.update');
         Route::get('/keranjang/kosongkan', [CartController::class, 'clear'])->name('cart.clear');
         Route::post('/keranjang/hapus', [CartController::class, 'remove'])->name('cart.remove');
+
+        Route::post('/checkout', [OrderController::class, 'store'])->name('orders.store');
+        Route::get('/order', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/order/{order}', [OrderController::class, 'show'])->name('orders.show');
+        Route::patch('/order/{order}/bukti-pembayaran', [OrderController::class, 'uploadPaymentProof'])->name('orders.upload.payment-proof');
+        Route::get('/order/{order}/ubah-status', [OrderController::class, 'changeOrderStatus'])->name('orders.change-status');
+
 });
 
 require __DIR__.'/auth.php';

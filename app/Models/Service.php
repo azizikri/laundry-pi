@@ -22,4 +22,5 @@ class Service extends Model
     {
         return Storage::url($this->image);
     }
+
 }

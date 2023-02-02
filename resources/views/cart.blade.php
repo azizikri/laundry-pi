@@ -31,7 +31,8 @@
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
                                             <input type="number"
                                                 class="form-input w-20 text-center quantity cart_update" min="1"
-                                                value="{{ $item['quantity'] }}" onchange="updateCart('{{ $id }}', this.value)">
+                                                value="{{ $item['quantity'] }}"
+                                                onchange="updateCart('{{ $id }}', this.value)">
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
                                             Rp. {{ $item['price'] }}
@@ -67,11 +68,18 @@
             <div class="mt-5 flex flex-col lg:flex-row justify-between items-center">
                 <h2 class="text-lg font-bold mb-3 lg:mb-0">Total: Rp. {{ $totalPrice }}</h2>
                 <div class="mt-3 lg:mt-0">
-                    <a class="btn btn--subtle text-white py-2 px-4 rounded mr-3"
+                    <a class="btn btn--subtle text-white py-2 px-4 rounded mr-3 my-3"
                         href="{{ route('client.products.index') }}">Kembali</a>
-                    <a class="btn btn--accent text-white py-2 px-4 rounded mr-3"
+                    <a class="btn btn--accent text-white py-2 px-4 rounded mr-3 my-3"
                         href="{{ route('client.cart.clear') }}">Kosongkan</a>
-                    <button class="btn btn--primary text-white py-2 px-4 rounded">Checkout</button>
+                    <button class="btn btn--primary text-white py-2 px-4 rounded my-3"
+                        onclick="
+                        event.preventDefault();
+                        document.getElementById('checkout').submit();
+                    ">Checkout</button>
+                    <form id="checkout" action="{{ route('client.orders.store') }}" method="post">
+                        @csrf
+                    </form>
                 </div>
             </div>
 
@@ -108,8 +116,7 @@
                         quantity: quantity,
                         _token: '{{ csrf_token() }}'
                     },
-                    success: function(response) {
-                    }
+                    success: function(response) {}
                 });
             }
 

@@ -42,16 +42,19 @@
 
                                 <div class="mt-auto">
                                     @guest
-                                        <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
-                                            Tambahkan ke keranjang
-                                        </a>
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                                Tambah ke keranjang
+                                            </a>
+                                        </div>
                                     @endguest
                                     @auth
-                                        <button type="submit" class="btn btn--primary btn--md w-full cart-add"
-                                            data-id="{{ $service->slug }}1" data-name="{{ $service->name }}"
-                                            data-image="{{ $service->image }}" data-price="{{ $service->price }}">
-                                            Tambahkan ke keranjang
-                                        </button>
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <button class="btn btn--primary btn--md w-full cart-add" type="submit"
+                                                data-id="{{ $service->slug }}" data-itemid="{{ $service->id }}"
+                                                data-name="{{ $service->name }}" data-image="{{ $service->image }}"
+                                                data-price="{{ $service->price }}">Tambah ke keranjang</button>
+                                        </div>
                                     @endauth
                                 </div>
                             </div>
@@ -82,8 +85,9 @@
                                 menavigasi ke halaman produk.</p>
                         </div>
 
-                        <div class="flex justify-end mt-3 lg:mt-5"><a class="btn btn--subtle" href="#0">Pelajari
-                                lebih lanjut</a></div>
+                        <div class="flex justify-end mt-3 lg:mt-5">
+                            <a class="btn btn--subtle" href="#0">Pelajari lebih lanjut</a>
+                        </div>
                     </div>
                 </div>
                 <div class="py-12">
@@ -155,6 +159,7 @@
                 e.preventDefault();
 
                 let id = $(this).data('id');
+                let item_id = $(this).data('itemid');
                 let name = $(this).data('name');
                 let type = 'Servis';
                 let image = $(this).data('image');
@@ -166,6 +171,7 @@
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": id,
+                        "item_id": item_id,
                         "name": name,
                         "type": type,
                         "image": image,

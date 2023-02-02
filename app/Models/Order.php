@@ -2,25 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\Uuids;
+use App\Enum\Order\OrderStatus;
+use App\Enum\Order\PaymentStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, Uuids;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'user_id',
-        'product_id',
-        'quantity',
-        'total_price',
-        'status',
-    ];
+    protected $guarded = ['id', 'uuid'];
 
     /**
      * Get the user that owns the order.
@@ -30,24 +27,18 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the product that owns the order.
-     */
     public function products()
     {
         return $this->belongsToMany(Product::class);
     }
 
-    /**
-     * Get the product that owns the order.
-     */
     public function services()
     {
         return $this->belongsToMany(Service::class);
     }
 
-    public function courier()
-    {
-        return $this->belongsTo(Courier::class);
-    }
+    protected $casts = [
+        'order_status' => OrderStatus::class,
+        'payment_status' => PaymentStatus::class,
+    ];
 }

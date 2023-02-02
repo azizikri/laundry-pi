@@ -8071,3 +8071,113 @@ Usage: codyhouse.co/license
   .cart-count {
     background-color: hsl(var(--color-accent));
   }
+
+  .bg-primary-darker {
+    background-color: hsl(var(--color-primary-darker));
+  }
+
+  .bg-primary-dark {
+    background-color: hsl(var(--color-primary-dark));
+  }
+
+  .bg-primary {
+    background-color: hsl(var(--color-primary));
+  }
+
+  .bg-primary-light {
+    background-color: hsl(var(--color-primary-light));
+  }
+
+  .bg-primary-lighter {
+    background-color: hsl(var(--color-primary-lighter));
+  }
+
+  .bg-accent-darker {
+    background-color: hsl(var(--color-accent-darker));
+  }
+
+  .bg-accent-dark {
+    background-color: hsl(var(--color-accent-dark));
+  }
+
+  .bg-accent {
+    background-color: hsl(var(--color-accent));
+  }
+
+  .bg-accent-light {
+    background-color: hsl(var(--color-accent-light));
+  }
+
+  .bg-accent-lighter {
+    background-color: hsl(var(--color-accent-lighter));
+  }
+
+  .bg-black {
+    background-color: hsl(var(--color-black));
+  }
+
+  .bg-white {
+    background-color: hsl(var(--color-white));
+  }
+
+  .bg-warning-darker {
+    background-color: hsl(var(--color-warning-darker));
+  }
+
+  .bg-warning-dark {
+    background-color: hsl(var(--color-warning-dark));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--color-warning));
+  }
+
+  .bg-warning-light {
+    background-color: hsl(var(--color-warning-light));
+  }
+
+  .bg-warning-lighter {
+    background-color: hsl(var(--color-warning-lighter));
+  }
+
+  .bg-success-darker {
+    background-color: hsl(var(--color-success-darker));
+  }
+
+  .bg-success-dark {
+    background-color: hsl(var(--color-success-dark));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--color-success));
+  }
+
+  .bg-success-light {
+    background-color: hsl(var(--color-success-light));
+  }
+
+  .bg-success-lighter {
+    background-color: hsl(var(--color-success-lighter));
+  }
+
+  .bg-error-darker {
+    background-color: hsl(var(--color-error-darker));
+  }
+
+  .bg-error-dark {
+    background-color: hsl(var(--color-error-dark));
+  }
+
+  .bg-error {
+    background-color: hsl(var(--color-error));
+  }
+
+  .bg-error-light {
+    background-color: hsl(var(--color-error-light));
+  }
+
+  .bg-error-lighter {
+    background-color: hsl(var(--color-error-lighter));
+   }
+
+   
