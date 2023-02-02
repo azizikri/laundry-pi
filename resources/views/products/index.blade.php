@@ -12,41 +12,48 @@
 
                     <div class="grid grid-cols-12 gap-3 lg:gap-5">
                         @forelse ($products as $product)
-                        <div class="p-table__item col-span-12 lg:col-span-4">
-                            <div class="mb-1.5 lg:mb-2">
-                                <h4 class="p-table__title">{{ $product->name }}</h4>
-                            </div>
-
-                            <div class="p-table__price-wrapper mb-3 lg:mb-5">
-                                <div class="p-table__price p-table__price">
-                                    <a class="prod-card__img-link" href="{{ route('client.products.show', $product) }}"
-                                        aria-label="Description of the link">
-                                        <figure class="prod-card__img ">
-                                            <img src="{{ $product->image() }}"
-                                                alt="Product preview image">
-                                        </figure>
-                                    </a>
+                            <div class="p-table__item col-span-12 lg:col-span-4">
+                                <div class="mb-1.5 lg:mb-2">
+                                    <h4 class="p-table__title">{{ $product->name }}</h4>
                                 </div>
+
+                                <div class="p-table__price-wrapper mb-3 lg:mb-5">
+                                    <div class="p-table__price p-table__price">
+                                        <a class="prod-card__img-link"
+                                            href="{{ route('client.products.show', $product) }}"
+                                            aria-label="Description of the link">
+                                            <figure class="prod-card__img ">
+                                                <img src="{{ $product->image() }}" alt="Product preview image">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <ul class="p-table__features mb-5 lg:mb-8">
+                                    <li>
+                                        <p>
+                                            Rp.{{ $product->price }} <br>
+                                            {{ $product->description }}
+                                        </p>
+                                    </li>
+                                </ul>
+
+                                <div class="mt-auto">
+                                    @guest
+                                        <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                            Tambahkan ke keranjang
+                                        </a>
+                                    @endguest
+                                    @auth
+                                        <button type="submit" class="btn btn--primary btn--md w-full cart-add"
+                                            data-id="{{ $product->slug }}1" data-name="{{ $product->name }}"
+                                            data-image="{{ $product->image }}" data-price="{{ $product->price }}">
+                                            Tambahkan ke keranjang
+                                        </button>
+                                    @endauth
+                                </div>
+
                             </div>
-
-                            <ul class="p-table__features mb-5 lg:mb-8">
-                                <li>
-                                    <p>
-                                        Rp.{{ $product->price }} <br>
-                                        {{ $product->description }}
-                                    </p>
-                                </li>
-                            </ul>
-
-                            <div class="mt-auto">
-                                <button type="submit" class="btn btn--primary btn--md w-full cart-add"
-                                    data-id="{{ $product->slug }}1" data-name="{{ $product->name }}"
-                                    data-image="{{ $product->image }}" data-price="{{ $product->price }}">
-                                    Tambahkan ke keranjang
-                                </button>
-                            </div>
-
-                        </div>
                         @empty
                             <h1>Tidak Tersedia, mohon bersabar...</h1>
                         @endforelse
@@ -143,37 +150,37 @@
     </section>
 
     @push('scripts')
-    <script src="{{ asset('assets/js/jquery.js') }}"></script>
-    <script>
-        function addToCart(e) {
-            e.preventDefault();
+        <script src="{{ asset('assets/js/jquery.js') }}"></script>
+        <script>
+            function addToCart(e) {
+                e.preventDefault();
 
-            let id = $(this).data('id');
-            let name = $(this).data('name');
-            let type = 'Produk';
-            let image = $(this).data('image');
-            let price = $(this).data('price');
+                let id = $(this).data('id');
+                let name = $(this).data('name');
+                let type = 'Produk';
+                let image = $(this).data('image');
+                let price = $(this).data('price');
 
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('client.cart.add') }}",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    "id": id,
-                    "name": name,
-                    "type": type,
-                    "image": image,
-                    "price": price
-                },
-                success: function (data) {
-                    location.reload();
-                },
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('client.cart.add') }}",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "id": id,
+                        "name": name,
+                        "type": type,
+                        "image": image,
+                        "price": price
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                });
+            }
+
+            $(document).ready(function() {
+                $('.cart-add').click(addToCart);
             });
-        }
-
-        $(document).ready(function () {
-            $('.cart-add').click(addToCart);
-        });
-    </script>
-@endpush
+        </script>
+    @endpush
 </x-app-layout>

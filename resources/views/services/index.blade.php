@@ -41,11 +41,18 @@
                                 </ul>
 
                                 <div class="mt-auto">
-                                    <button type="submit" class="btn btn--primary btn--md w-full cart-add"
-                                        data-id="{{ $service->slug }}1" data-name="{{ $service->name }}"
-                                        data-image="{{ $service->image }}" data-price="{{ $service->price }}">
-                                        Tambahkan ke keranjang
-                                    </button>
+                                    @guest
+                                        <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                            Tambahkan ke keranjang
+                                        </a>
+                                    @endguest
+                                    @auth
+                                        <button type="submit" class="btn btn--primary btn--md w-full cart-add"
+                                            data-id="{{ $service->slug }}1" data-name="{{ $service->name }}"
+                                            data-image="{{ $service->image }}" data-price="{{ $service->price }}">
+                                            Tambahkan ke keranjang
+                                        </button>
+                                    @endauth
                                 </div>
                             </div>
                         @empty

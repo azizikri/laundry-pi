@@ -44,13 +44,6 @@
           <span class="link-title">Servis</span>
         </a>
       </li>
-      <li class="nav-item nav-category">Ekspedisi</li>
-      <li class="nav-item {{ active_class(['admin.couriers.index', 'admin.couriers.create', 'admin.couriers.edit']) }}">
-        <a href="{{ route('admin.couriers.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="truck"></i>
-          <span class="link-title">Kurir</span>
-        </a>
-      </li>
       <li class="nav-item nav-category">Pengguna</li>
       <li class="nav-item {{ active_class(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
         <a href="{{ route('admin.users.index')}}" class="nav-link">

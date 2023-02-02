@@ -23,7 +23,6 @@ class DashboardController extends Controller
         $userCount = User::count();
         $productCount = Product::count();
         $serviceCount = Service::count();
-        $courierCount = Courier::count();
         $totalOrderCount = Order::count();
         $orderCompletedCount = Order::where('status', 'completed')->count();
 
@@ -32,7 +31,6 @@ class DashboardController extends Controller
             'userCount' => $userCount,
             'productCount' => $productCount,
             'serviceCount' => $serviceCount,
-            'courierCount' => $courierCount,
             'totalOrderCount' => $totalOrderCount,
             'orderCompletedCount' => $orderCompletedCount,
         ]);
