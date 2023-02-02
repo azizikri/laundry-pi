@@ -51,10 +51,10 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
         Route::post('/keranjang/hapus', [CartController::class, 'remove'])->name('cart.remove');
 
         Route::post('/checkout', [OrderController::class, 'store'])->name('orders.store');
-        Route::get('/order', [OrderController::class, 'index'])->name('orders.index');
-        Route::get('/order/{order}', [OrderController::class, 'show'])->name('orders.show');
-        Route::patch('/order/{order}/bukti-pembayaran', [OrderController::class, 'uploadPaymentProof'])->name('orders.upload.payment-proof');
-        Route::get('/order/{order}/ubah-status', [OrderController::class, 'changeOrderStatus'])->name('orders.change-status');
+        Route::get('/pesanan', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/pesanan/{order}', [OrderController::class, 'show'])->name('orders.show');
+        Route::patch('/pesanan/{order}/bukti-pembayaran', [OrderController::class, 'uploadPaymentProof'])->name('orders.upload.payment-proof');
+        Route::get('/pesanan/{order}/ubah-status', [OrderController::class, 'changeOrderStatus'])->name('orders.change-status');
 
 });
 
