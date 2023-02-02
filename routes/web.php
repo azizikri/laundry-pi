@@ -56,6 +56,10 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
         Route::patch('/pesanan/{order}/bukti-pembayaran', [OrderController::class, 'uploadPaymentProof'])->name('orders.upload.payment-proof');
         Route::get('/pesanan/{order}/ubah-status', [OrderController::class, 'changeOrderStatus'])->name('orders.change-status');
 
+        Route::get('tentang-kami', function () {
+            return view('about-us');
+        })->name('about-us.index');
+
 });
 
 require __DIR__.'/auth.php';
