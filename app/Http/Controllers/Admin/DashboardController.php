@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $serviceCount = Service::count();
         $totalOrderCount = Order::count();
         $orderCompletedCount = Order::where('order_status', OrderStatus::COMPLETED)->count();
-        $pendingOrders = Order::where('order_status', OrderStatus::PENDING)->get();
+        $pendingOrders = Order::where('order_status', OrderStatus::PENDING)->orderBy('created_at', 'desc')->get();
 
 
         return view('admin.dashboard', [

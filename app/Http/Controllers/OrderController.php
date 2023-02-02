@@ -62,7 +62,7 @@ class OrderController extends Controller
 
         session()->forget('cart');
 
-        return redirect()->route('orders.show', $order);
+        return redirect()->route('client.orders.show', $order)->with('success', 'Pesanan berhasil dibuat!');
     }
 
     public function show(Order $order)

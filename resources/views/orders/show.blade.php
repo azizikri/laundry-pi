@@ -74,7 +74,7 @@
                                     {{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}
                                 </p>
                             </div>
-                            <img src="{{ $service->image() }}" class="flex-shrink-0 object-cover rounded-lg"
+                            <img src="{{ $product->image() }}" class="flex-shrink-0 object-cover rounded-lg"
                                 style="max-width: 25%; max-height: 25%;" alt="Image">
                         </div>
                     </div>

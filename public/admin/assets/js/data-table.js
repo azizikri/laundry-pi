@@ -7,6 +7,7 @@ $(function() {
         [10, 30, 50, -1],
         [10, 30, 50, "All"]
       ],
+      "ordering": false,
       "iDisplayLength": 10,
       "language": {
         search: ""
