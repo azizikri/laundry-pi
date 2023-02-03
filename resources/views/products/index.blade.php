@@ -4,7 +4,6 @@
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
             <div class="text-component text-center mb-12 lg:mb-20">
                 <h1>Produk</h1>
-                <p class="text-contrast-medium">Dipilih sesuai kebutuhan bray...</p>
             </div>
 
             <div class="p-table p-table--has-switch js-p-table--has-switch">
@@ -14,7 +13,6 @@
                         @forelse ($products as $product)
                             <div class="p-table__item col-span-12 lg:col-span-4">
                                 <div class="mb-1.5 lg:mb-2">
-                                    <h4 class="p-table__title">{{ $product->name }}</h4>
                                 </div>
 
                                 <div class="p-table__price-wrapper mb-3 lg:mb-5">
@@ -28,34 +26,40 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="text-center">
+                                    <ul class="p-table__features mb-5 lg:mb-8">
+                                        <li>
+                                            <h4 class="p-table__title">{{ $product->name }}</h4>
+                                            <p>
+                                                {{ $product->description }}
+                                            </p>
+                                            <p class="font-bold">
+                                                {{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}
+                                            </p>
+                                        </li>
+                                    </ul>
 
-                                <ul class="p-table__features mb-5 lg:mb-8">
-                                    <li>
-                                        <p>
-                                            Rp.{{ $product->price }} <br>
-                                            {{ $product->description }}
-                                        </p>
-                                    </li>
-                                </ul>
-
-                                <div class="mt-auto">
-                                    @guest
-                                        <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
-                                            Tambahkan ke keranjang
-                                        </a>
-                                    @endguest
-                                    @auth
-                                        <button type="submit" class="btn btn--primary btn--md w-full cart-add"
-                                            data-id="{{ $product->slug }}" data-itemid="{{ $product->id }}" data-name="{{ $product->name }}"
-                                            data-image="{{ $product->image }}" data-price="{{ $product->price }}">
-                                            Tambahkan ke keranjang
-                                        </button>
-                                    @endauth
+                                    <div class="mt-auto">
+                                        @guest
+                                            <div class="flex justify-start mt-3 lg:mt-5">
+                                                <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                                    Tambah ke keranjang
+                                                </a>
+                                            </div>
+                                        @endguest
+                                        @auth
+                                            <div class="flex justify-start mt-3 lg:mt-5">
+                                                <button class="btn btn--primary btn--md w-full cart-add" type="submit"
+                                                    data-id="{{ $product->slug }}" data-itemid="{{ $product->id }}"
+                                                    data-name="{{ $product->name }}" data-image="{{ $product->image }}"
+                                                    data-price="{{ $product->price }}">Tambah ke keranjang</button>
+                                            </div>
+                                        @endauth
+                                    </div>
                                 </div>
-
                             </div>
                         @empty
-                            <h1>Tidak Tersedia, mohon bersabar...</h1>
+                            <h1 class="text-center">Tidak Tersedia, mohon bersabar...</h1>
                         @endforelse
 
                     </div>

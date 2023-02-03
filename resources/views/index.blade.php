@@ -45,7 +45,7 @@
                     <div class="bg-contrast-lower/50 col-span-12 lg:col-span-6">
                         <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
                             <h2>Produk</h2>
-                            <p class="mt-auto"><a href="#0" class="feature-v10__link"><i
+                            <p class="mt-auto"><a href="{{ route('client.products.index') }}" class="feature-v10__link"><i
                                         class="not-italic">Belanja Sekarang</i></a></p>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                     <div class="bg-floor-dark col-span-12 lg:col-span-6 lg:order-1">
                         <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
                             <h2>Servis Cuci Sepatu</h2>
-                            <p class="mt-auto"><a href="#0" class="feature-v10__link"><i
+                            <p class="mt-auto"><a href="{{ route('client.services.index') }}" class="feature-v10__link"><i
                                         class="not-italic">Pesan Sekarang</i></a></p>
                         </div>
                     </div>

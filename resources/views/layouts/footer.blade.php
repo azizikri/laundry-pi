@@ -2,7 +2,7 @@
     <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
         <div class="grid grid-cols-12 gap-y-8 lg:gap-12">
             <div class="col-span-12 xl:col-span-3 xl:order-2 xl:text-right">
-                <a class="main-footer__logo" href="#0">
+                <a class="main-footer__logo" href="{{ route('client.index') }}">
                     <svg width="104" height="30" viewBox="0 0 104 30">
                         <title>Pergi ke halaman utama</title>
                         <path
@@ -18,9 +18,9 @@
                     <li class="col-span-12 sm:col-span-6 lg:col-span-3">
                         <h4 class="mb-3 lg:mb-5">Halaman</h4>
                         <ul class="grid grid-cols-12 gap-2 lg:gap-3">
-                            <li class="col-span-12"><a href="#0" class="main-footer__link">Paket</a></li>
-                            <li class="col-span-12"><a href="#0" class="main-footer__link">Produk</a></li>
-                            <li class="col-span-12"><a href="#0" class="main-footer__link">Tentang Kami</a></li>
+                            <li class="col-span-12"><a href="{{ route('client.services.index') }}" class="main-footer__link">Servis</a></li>
+                            <li class="col-span-12"><a href="{{ route('client.products.index') }}" class="main-footer__link">Produk</a></li>
+                            <li class="col-span-12"><a href="{{ route('client.about-us.index') }}" class="main-footer__link">Tentang Kami</a></li>
                         </ul>
                     </li>
                 </ul>

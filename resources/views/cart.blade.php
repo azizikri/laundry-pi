@@ -35,10 +35,10 @@
                                                 onchange="updateCart('{{ $id }}', this.value)">
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
-                                            Rp. {{ $item['price'] }}
+                                            {{ 'Rp. ' . number_format($item['price'], 0, ',', '.') }}
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
-                                            Rp. {{ $item['price'] * $item['quantity'] }}
+                                            {{ 'Rp. ' . number_format($item['price'] * $item['quantity'], 0, ',', '.') }}
                                         </td>
                                         <td class="p-3 border-t border-gray-300 text-sm font-medium">
                                             <button type="submit"
@@ -66,7 +66,9 @@
             </div>
 
             <div class="mt-5 flex flex-col lg:flex-row justify-between items-center">
-                <h2 class="text-lg font-bold mb-3 lg:mb-0">Total: Rp. {{ $totalPrice }}</h2>
+                <h2 class="text-lg font-bold mb-3 lg:mb-0">
+                    Total: {{ 'Rp. ' . number_format($totalPrice, 0, ',', '.') }}
+                </h2>
                 <div class="mt-3 lg:mt-0">
                     <a class="btn btn--subtle text-white py-2 px-4 rounded mr-3 my-3"
                         href="{{ route('client.products.index') }}">Kembali</a>

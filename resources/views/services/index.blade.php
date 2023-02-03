@@ -3,7 +3,7 @@
         <div
             class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
             <div class="text-component text-center mb-12 lg:mb-20">
-                <h1>Servis Kami</h1>
+                <h1>Servis</h1>
             </div>
 
 
@@ -16,7 +16,6 @@
                         @forelse ($services as $service)
                             <div class="p-table__item col-span-12 lg:col-span-4">
                                 <div class="mb-1.5 lg:mb-2">
-                                    <h4 class="p-table__title">{{ $service->name }}</h4>
                                 </div>
 
                                 <div class="p-table__price-wrapper mb-3 lg:mb-5">
@@ -30,36 +29,41 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="text-center">
 
-                                <ul class="p-table__features mb-5 lg:mb-8">
-                                    <li>
-                                        <p>
-                                            Rp.{{ $service->price }} <br>
-                                            {{ $service->description }}
-                                        </p>
-                                    </li>
-                                </ul>
+                                    <ul class="p-table__features mb-5 lg:mb-8">
+                                        <li>
+                                            <h4 class="p-table__title">{{ $service->name }}</h4>
+                                            <p class="my-3">
+                                                {{ $service->description }}
+                                            </p>
+                                            <p class="font-bold">
+                                                {{ 'Rp. ' . number_format($service->price, 0, ',', '.') }}
+                                            </p>
+                                        </li>
+                                    </ul>
 
-                                <div class="mt-auto">
-                                    @guest
-                                        <div class="flex justify-start mt-3 lg:mt-5">
-                                            <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
-                                                Tambah ke keranjang
-                                            </a>
-                                        </div>
-                                    @endguest
-                                    @auth
-                                        <div class="flex justify-start mt-3 lg:mt-5">
-                                            <button class="btn btn--primary btn--md w-full cart-add" type="submit"
-                                                data-id="{{ $service->slug }}" data-itemid="{{ $service->id }}"
-                                                data-name="{{ $service->name }}" data-image="{{ $service->image }}"
-                                                data-price="{{ $service->price }}">Tambah ke keranjang</button>
-                                        </div>
-                                    @endauth
+                                    <div class="mt-auto">
+                                        @guest
+                                            <div class="flex justify-start mt-3 lg:mt-5">
+                                                <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                                    Tambah ke keranjang
+                                                </a>
+                                            </div>
+                                        @endguest
+                                        @auth
+                                            <div class="flex justify-start mt-3 lg:mt-5">
+                                                <button class="btn btn--primary btn--md w-full cart-add" type="submit"
+                                                    data-id="{{ $service->slug }}" data-itemid="{{ $service->id }}"
+                                                    data-name="{{ $service->name }}" data-image="{{ $service->image }}"
+                                                    data-price="{{ $service->price }}">Tambah ke keranjang</button>
+                                            </div>
+                                        @endauth
+                                    </div>
                                 </div>
                             </div>
                         @empty
-                            <h1>Tidak Tersedia, mohon bersabar...</h1>
+                            <h1 class="text-center">Tidak Tersedia, mohon bersabar...</h1>
                         @endforelse
                     </div>
                 </div>
