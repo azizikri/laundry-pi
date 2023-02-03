@@ -25,8 +25,8 @@
           <span class="link-title">Pemesanan</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['admin.dashboard']) }}">
-        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+      <li class="nav-item {{ active_class(['admin.orders.confirmation']) }}">
+        <a href="{{ route('admin.orders.confirmation')}}" class="nav-link">
           <i class="link-icon" data-feather="check-circle"></i>
           <span class="link-title">Konfirmasi Pemesanan</span>
         </a>
