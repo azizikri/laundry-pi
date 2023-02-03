@@ -51,12 +51,14 @@
           <span class="link-title">User</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['admin.admins.index', 'admin.admins.create', 'admin.admins.edit']) }}">
-        <a href="{{ route('admin.admins.index')}}" class="nav-link">
-          <i class="link-icon" data-feather="shield"></i>
-          <span class="link-title">Admin</span>
-        </a>
-      </li>
+      @can('isSuperAdmin', auth('admin')->user())
+        <li class="nav-item {{ active_class(['admin.admins.index', 'admin.admins.create', 'admin.admins.edit']) }}">
+            <a href="{{ route('admin.admins.index')}}" class="nav-link">
+            <i class="link-icon" data-feather="shield"></i>
+            <span class="link-title">Admin</span>
+            </a>
+        </li>
+      @endcan
     </ul>
   </div>
 </nav>

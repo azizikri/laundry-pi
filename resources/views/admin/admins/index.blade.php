@@ -53,10 +53,9 @@
                                         <td>{{ $admin->email }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <a href="{{ auth()->user('admin')->id == $admin->id ? '#' : route('admin.admins.edit', $admin) }}"
+                                                <a href="{{ auth()->user('admin')->id == $admin->id ? route('admin.profile.edit') : route('admin.admins.edit', $admin) }}"
                                                     class="text-info mx-3">
-                                                    <button type="button" class="mr-3 btn btn-sm btn-warning btn-icon-text"
-                                                        {{ auth()->user('admin')->id == $admin->id ? 'disabled' : '' }}>
+                                                    <button type="button" class="mr-3 btn btn-sm btn-warning btn-icon-text">
                                                         <i class="btn-icon-prepend" data-feather="edit"></i>
                                                         Edit
                                                     </button>

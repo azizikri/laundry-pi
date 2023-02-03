@@ -15,6 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         $admins = Admin::latest()->get();
 
         return view('admin.admins.index', [
@@ -29,6 +31,8 @@ class AdminController extends Controller
      */
     public function create()
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         return view('admin.admins.create');
     }
 
@@ -40,6 +44,8 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
 
@@ -56,6 +62,8 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         return view('admin.admins.show', [
             'admin' => $admin,
         ]);
@@ -69,6 +77,12 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
+        if ($admin->id == auth()->user()->id) {
+            return redirect()->route('admin.profile.edit');
+        }
+
         return view('admin.admins.edit', [
             'admin' => $admin,
         ]);
@@ -83,6 +97,8 @@ class AdminController extends Controller
      */
     public function update(AdminRequest $request, Admin $admin)
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         $request->merge(['admin' => $admin]);
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
@@ -100,6 +116,8 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
+        $this->authorize('isSuperAdmin', auth('admin')->user());
+
         $admin->delete();
 
         return redirect()->route('admin.admins.index')->with('success', 'Admin Berhasil dihapus!');
