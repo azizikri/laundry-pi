@@ -103,9 +103,28 @@
                 <h2 class="mt-3 mb-3 text-lg font-bold lg:mb-0">Total belanja: Rp.
                     {{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}</h2>
                 @if ($order->payment_status == $paymentEnums::PENDING && $order->order_status != $orderEnums::CANCELED)
-                    <p class="mt-3" style="color: rgb(185 28 28 / var(--tw-text-opacity));">*Silahkan melakukan
-                        pembayaran sebelum
-                        {{ $order->created_at->addDays(1)->format('d M Y') }}</p>
+                    <p class="mt-3">
+                        Silahkan melakukan pembayaran sebelum {{ $order->created_at->addDays(1)->format('d M Y') }} ke
+                        rekening berikut :
+                    <ul>
+                        <li>
+                            <p>
+                                BCA 1234567890 a/n PT. Kedai Kita
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                BNI 1234567890 a/n PT. Kedai Kita
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Mandiri 1234567890 a/n PT. Kedai Kita
+                            </p>
+                        </li>
+                    </ul>
+
+                    </p>
                 @endif
 
                 @if (
@@ -119,47 +138,43 @@
                 @endif
                 <div class="flex flex-col items-center justify-between mt-10 lg:flex-row">
                     <div class="mt-3 lg:mt-0">
-                        <a class="px-4 py-2 my-3 mr-3 text-white rounded btn btn--subtle"
+                        <a class="px-4 py-2 my-3 text-white rounded btn btn--subtle lg:mr-0"
                             href="{{ route('client.orders.index') }}">
                             Kembali
                         </a>
 
                         @if ($order->order_status == $orderEnums::PENDING)
-                            <a class="px-4 py-2 my-3 text-white rounded btn btn--accent"
+                            <a class="px-4 py-2 my-3 text-white rounded btn btn--accent lg:ml-3"
                                 href="{{ route('client.orders.change-status', $order) }}">
                                 Batalkan
                             </a>
                         @elseif($order->order_status == $orderEnums::CANCELED)
-                            <a class="px-4 py-2 my-3 text-white rounded btn btn--primary"
+                            <a class="px-4 py-2 my-3 text-white rounded btn btn--primary lg:ml-3"
                                 href="{{ route('client.orders.change-status', $order) }}">
                                 Pesan Kembali
                             </a>
                         @elseif($order->order_status == $orderEnums::DELIVERED)
-                            <a class="px-4 py-2 my-3 text-white rounded btn btn--primary"
+                            <a class="px-4 py-2 my-3 text-white rounded btn btn--primary lg:ml-3"
                                 href="{{ route('client.orders.change-status', $order) }}">
                                 Selesaikan Pesanan
                             </a>
                         @endif
 
-                        {{-- <a class="btn btn--{{ $order->order_status != $orderEnums::PENDING ? 'accent' : 'primary' }} text-white py-2 px-4 rounded mr-3 my-3"
-                            href="{{ route('client.orders.change-status', $order) }}">
-                            {{ $order->order_status == $orderEnums::PENDING ? 'Batalkan' : 'Pesan Kembali' }}
-                        </a> --}}
-
-                        <button class="px-4 py-2 my-3 text-white rounded btn btn--primary" aria-controls="modal-bukti">
+                        <button class="px-4 py-2 my-3 text-white rounded btn btn--primary lg:ml-3"
+                            aria-controls="modal-bukti">
                             {{ $order->evidence_of_payment == null ? 'Upload Bukti Pembayaran' : 'Update Bukti Pembayaran' }}
                         </button>
-                        <a href="{{ Storage::url($order->evidence_of_payment) }}" download>
-                            <button class="px-4 py-2 my-3 rounded btn btn--primary">
-                                <svg class="w-4 h-4 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                                </svg>
-                                Download
-                            </button>
-                        </a>
-
-
+                        @if ($order->payment_status != $paymentEnums::PENDING)
+                            <a href="{{ Storage::url($order->evidence_of_payment) }}" download>
+                                <button class="px-4 py-2 my-3 rounded btn btn--primary lg:ml-3">
+                                    <svg class="w-4 h-4 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                                    </svg>
+                                    Download
+                                </button>
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
