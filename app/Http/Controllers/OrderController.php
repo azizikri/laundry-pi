@@ -28,11 +28,41 @@ class OrderController extends Controller
     {
         $this->authorize('owner', $order);
 
-        $order->order_status === OrderStatus::CANCELED ? $order->order_status = OrderStatus::PENDING : $order->order_status = OrderStatus::CANCELED;
+        // $order->order_status === OrderStatus::CANCELED ? $order->order_status = OrderStatus::PENDING : $order->order_status = OrderStatus::CANCELED;
 
-        $order->save();
-        return redirect()->back()->with('success', 'Status Pesanan berhasil diubah!');
+        if ($order->order_status === OrderStatus::CANCELED) {
+            $newOrder = new Order;
+            $newOrder->fill([
+                'total_price' => $order->total_price,
+                'user_id' => $order->user_id,
+                'reciever_name' => $order->reciever_name,
+                'reciever_phone' => $order->reciever_phone,
+                'reciever_address' => $order->reciever_address,
+            ]);
+            
+            $newOrder->save();
 
+            foreach ($order->products as $product) {
+                $newOrder->products()->attach($product->id, [
+                    'quantity' => $product->pivot->quantity,
+                ]);
+            }
+
+            foreach ($order->services as $service) {
+                $newOrder->services()->attach($service->id, [
+                    'quantity' => $service->pivot->quantity,
+                ]);
+            }
+
+            return redirect()->route('client.orders.show', $newOrder)->with('success', 'Pesanan berhasil dibuat!');
+
+        } else if ($order->order_status === OrderStatus::PENDING) {
+            $order->order_status = OrderStatus::CANCELED;
+            $order->save();
+            return redirect()->back()->with('success', 'Status Pesanan berhasil diubah!');
+        } else {
+            return redirect()->back()->with('error', 'Status Pesanan tidak dapat diubah!');
+        }
     }
 
     public function store()
