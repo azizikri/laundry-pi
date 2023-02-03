@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Order;
-use Illuminate\Http\Request;
 use App\Enum\Order\OrderStatus;
 use App\Enum\Order\PaymentStatus;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rules\Enum;
+use App\Models\Order;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Enum;
 
 class OrderController extends Controller
 {
@@ -26,10 +26,9 @@ class OrderController extends Controller
         return view('admin.orders.index', [
             'orders' => $orders,
             'orderEnums' => $orderEnums,
-            'paymentEnums' => $paymentEnums
+            'paymentEnums' => $paymentEnums,
         ]);
     }
-
 
     /**
      * Display the specified resource.
@@ -59,7 +58,7 @@ class OrderController extends Controller
     public function changeOrderStatus(Request $request, Order $order)
     {
         $request->validate([
-            'order_status' => ['required',  new Enum(OrderStatus::class)],
+            'order_status' => ['required', new Enum(OrderStatus::class)],
         ]);
 
         $order->update([
@@ -79,7 +78,7 @@ class OrderController extends Controller
     public function changePaymentStatus(Request $request, Order $order)
     {
         $request->validate([
-            'payment_status' => ['required',  new Enum(PaymentStatus::class)],
+            'payment_status' => ['required', new Enum(PaymentStatus::class)],
         ]);
 
         $order->update([
@@ -103,19 +102,5 @@ class OrderController extends Controller
             Storage::delete($order->evidence_of_payment);
         }
         return redirect()->route('admin.orders.index')->with('success', 'Pesanan berhasil dihapus!');
-    }
-
-
-    public function orderConfirmationIndex()
-    {
-        $orders = Order::orderBy('created_at', 'desc')->get();
-        $orderEnums = OrderStatus::class;
-        $paymentEnums = PaymentStatus::class;
-
-        return view('admin.orders.confirmation', [
-            'orders' => $orders,
-            'orderEnums' => $orderEnums,
-            'paymentEnums' => $paymentEnums,
-        ]);
     }
 }

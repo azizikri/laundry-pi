@@ -26,7 +26,6 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::resource('products', ProductController::class)->except(['show']);
 
-    Route::get('/orders/konfirmasi', [OrderController::class, 'orderConfirmationIndex'])->name('orders.confirmation');
     Route::resource('orders', OrderController::class)->only(['index', 'show', 'destroy']);
     Route::patch('/orders/{order}/ubah-status-pemesanan', [OrderController::class, 'changeOrderStatus'])->name('orders.change-order-status');
     Route::patch('/orders/{order}/ubah-status-pembayaran', [OrderController::class, 'changePaymentStatus'])->name('orders.change-payment-status');
