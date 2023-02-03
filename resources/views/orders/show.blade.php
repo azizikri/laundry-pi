@@ -8,7 +8,7 @@
         <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl py-20 lg:py-32">
             <!-- orders.blade.php -->
             <div class="flex justify-between">
-                <h1 class="mb-4 text-2xl font-bold">Pesanan #{{ $order->uuid }}</h1>
+                <h1 class="mb-4 text-2xl font-bold">Pesanan <br>#{{ $order->uuid }}</h1>
                 <div>
                     @if ($order->order_status == $orderEnums::PENDING)
                         <span class="p-2 mx-3 text-xs text-white bg-primary-lighter">
