@@ -4,7 +4,7 @@
         <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl py-20 lg:py-32">
             <!-- orders.blade.php -->
             <h1 class="text-2xl font-bold mb-4">Pesanan</h1>
-            <div class="flex flex-wrap -mx-2">
+            <div class="flex flex-wrap mx-3">
                 @foreach ($orders as $order)
                     <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
                         <div class="bg-white rounded shadow-lg">
@@ -74,7 +74,8 @@
                     </div>
                 @endforeach
             </div>
-            {{ $orders->links() }}
+            {{ $orders->links('vendor.pagination.custom') }}
+
 
         </div>
     </section>
