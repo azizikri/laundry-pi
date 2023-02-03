@@ -114,33 +114,42 @@
                         </thead>
                         <tbody>
                             @foreach ($pendingOrders as $order)
-                                <tr>
-                                    <td>{{ $order->uuid }}</td>
-                                    <td>
-                                        @if($order->evidence_of_payment != null)
-                                            <a href="{{ Storage::url($order->evidence_of_payment) }}" target="_blank">
-                                                <button type="button" class="btn btn-sm btn-primary btn-icon-text">
-                                                    <i class="btn-icon-prepend" data-feather="download"></i>
-                                                    Download
-                                                </button>
-                                            </a>
-                                        @else
-                                            <button type="button" class="btn btn-sm btn-danger btn-icon-text">
-                                                <i class="btn-icon-prepend" data-feather="x"></i>
-                                                Tidak ada
+                            <tr>
+                                <td>{{ $order->uuid }}</td>
+                                <td>
+                                    @if($order->evidence_of_payment != null)
+                                        <a href="{{ Storage::url($order->evidence_of_payment) }}" target="_blank">
+                                            <button type="button" class="btn btn-sm btn-primary btn-icon-text">
+                                                <i class="btn-icon-prepend" data-feather="download"></i>
+                                                Download
                                             </button>
-                                        @endif
-                                    </td>
-                                    <td>{{ $order->created_at->diffForHumans() }}</td>
+                                        </a>
+                                    @else
+                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text">
+                                            <i class="btn-icon-prepend" data-feather="x"></i>
+                                            Tidak ada
+                                        </button>
+                                    @endif
+                                </td>
+                                <td>{{ $order->created_at->diffForHumans() }}</td>
 
-                                    <td>{{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            a
-
-                                        </div>
-                                    </td>
-                                </tr>
+                                <td>{{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="{{ route('admin.orders.show', $order) }}">
+                                            <button type="button" class="btn btn-sm btn-primary btn-icon-text mx-3">
+                                                <i class="btn-icon-prepend" data-feather="eye"></i>
+                                                Lihat Detail
+                                            </button>
+                                        </a>
+                                        <button type="button" class="mr-2 btn btn-sm btn-danger btn-icon-text"
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal{{ $order->id }}">
+                                            <i class=" btn-icon-prepend" data-feather="trash"></i>
+                                            Hapus
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Enum\Order\OrderStatus;
 use App\Enum\Order\PaymentStatus;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Enum;
 use Illuminate\Support\Facades\Storage;
 
@@ -80,7 +81,7 @@ class OrderController extends Controller
             'payment_status' => $request->payment_status,
         ]);
 
-        return redirect()->back()->with('success', 'Status Pesanan berhasil diubah!');
+        return redirect()->back()->with('success', 'Status Pembayaran berhasil diubah!');
     }
 
     /**
@@ -97,5 +98,19 @@ class OrderController extends Controller
             Storage::delete($order->evidence_of_payment);
         }
         return redirect()->route('admin.orders.index')->with('success', 'Pesanan berhasil dihapus!');
+    }
+
+
+    public function orderConfirmationIndex()
+    {
+        $orders = Order::orderBy('created_at', 'desc')->get();
+        $orderEnums = OrderStatus::class;
+        $paymentEnums = PaymentStatus::class;
+
+        return view('admin.orders.confirmation', [
+            'orders' => $orders,
+            'orderEnums' => $orderEnums,
+            'paymentEnums' => $paymentEnums,
+        ]);
     }
 }

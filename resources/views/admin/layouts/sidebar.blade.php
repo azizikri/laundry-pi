@@ -19,8 +19,8 @@
         </a>
       </li>
       <li class="nav-item nav-category">Transaksi</li>
-      <li class="nav-item {{ active_class(['admin.dashboard']) }}">
-        <a href="{{ route('admin.dashboard')}}" class="nav-link">
+      <li class="nav-item {{ active_class(['admin.orders.index', 'admin.orders.show']) }}">
+        <a href="{{ route('admin.orders.index')}}" class="nav-link">
           <i class="link-icon" data-feather="shopping-cart"></i>
           <span class="link-title">Pemesanan</span>
         </a>
@@ -28,7 +28,7 @@
       <li class="nav-item {{ active_class(['admin.dashboard']) }}">
         <a href="{{ route('admin.dashboard')}}" class="nav-link">
           <i class="link-icon" data-feather="check-circle"></i>
-          <span class="link-title">Konfirmasi Pembayaran</span>
+          <span class="link-title">Konfirmasi Pemesanan</span>
         </a>
       </li>
       <li class="nav-item nav-category">Inventori</li>
