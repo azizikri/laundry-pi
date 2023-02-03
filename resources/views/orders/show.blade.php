@@ -134,6 +134,11 @@
                                 href="{{ route('client.orders.change-status', $order) }}">
                                 Pesan Kembali
                             </a>
+                        @elseif($order->order_status == $orderEnums::DELIVERED)
+                            <a class="px-4 py-2 my-3 text-white rounded btn btn--primary"
+                                href="{{ route('client.orders.change-status', $order) }}">
+                                Selesaikan Pesanan
+                            </a>
                         @endif
 
                         {{-- <a class="btn btn--{{ $order->order_status != $orderEnums::PENDING ? 'accent' : 'primary' }} text-white py-2 px-4 rounded mr-3 my-3"

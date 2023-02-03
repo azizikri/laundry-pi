@@ -65,15 +65,21 @@
                 </div>
             </div>
 
-            <div class="mt-5 flex flex-col lg:flex-row justify-between items-center">
+            <div class="mt-3">
+
                 <h2 class="text-lg font-bold mb-3 lg:mb-0">
                     Total: {{ 'Rp. ' . number_format($totalPrice, 0, ',', '.') }}
                 </h2>
+            </div>
+            <div class="mt-5 flex flex-col lg:flex-row justify-end items-center">
                 <div class="mt-3 lg:mt-0">
                     <a class="btn btn--subtle text-white py-2 px-4 rounded mr-3 my-3"
                         href="{{ route('client.products.index') }}">Kembali</a>
                     <a class="btn btn--accent text-white py-2 px-4 rounded mr-3 my-3"
                         href="{{ route('client.cart.clear') }}">Kosongkan</a>
+                    {{-- make go to order page button --}}
+                    <a class="btn btn--primary-light text-white py-2 px-4 rounded mr-3 my-3"
+                    href="{{ route('client.orders.index') }}">Pesanan Anda</a>
                     <button class="btn btn--primary text-white py-2 px-4 rounded my-3"
                         onclick="
                         event.preventDefault();

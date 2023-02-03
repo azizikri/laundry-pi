@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="flex justify-end mt-3 lg:mt-5">
-                            <a class="btn btn--subtle" href="#0">Pelajari lebih lanjut</a>
+                            <a class="btn btn--subtle" href="{{ route('client.products.index') }}">Pelajari lebih lanjut</a>
                         </div>
                     </div>
                 </div>

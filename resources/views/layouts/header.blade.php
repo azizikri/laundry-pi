@@ -1,17 +1,12 @@
 <header class="f-header relative js-f-header">
     <div class="f-header__mobile-content w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
         <a href="{{ route('client.index') }}" class="f-header__logo">
-            <svg width="104" height="30" viewBox="0 0 104 30">
-                <title>Pergi ke halaman utama</title>
-                <path
-                    d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z"
-                    class="fill-contrast-higher" />
-                <circle cx="15" cy="15" r="15" class="fill-primary" />
-            </svg>
+            <h1 class="text-shadow-sm leading-tight lg:leading-tight" style="font-size: 2rem;">
+                <em>shoesclean.co</em>
+            </h1>
         </a>
 
-        <button class="reset anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus"
-            aria-label="Toggle menu">
+        <button class="reset anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus" aria-label="Toggle menu">
             <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
         </button>
     </div>
@@ -21,38 +16,20 @@
             class="f-header__nav-grid lg:justify-between w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
             <div class="f-header__nav-logo-wrapper grow basis-0">
                 <a href="{{ route('client.index') }}" class="f-header__logo">
-                    <svg width="104" height="30" viewBox="0 0 104 30">
-                        <title>Pergi ke halaman utama</title>
-                        <path
-                            d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z"
-                            class="fill-contrast-higher" />
-                        <circle cx="15" cy="15" r="15" class="fill-primary" />
-                    </svg>
+                    <h1 class="text-shadow-sm leading-tight lg:leading-tight" style="font-size: 2rem;">
+                        <em>shoesclean.co</em>
+                    </h1>
                 </a>
             </div>
 
             <ul class="f-header__list grow basis-0 lg:justify-center">
-                {{-- <li class="f-header__item">
-                    <a href="solutions.html" class="f-header__link">
-                        <span>Solutions</span>
-                        <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12">
-                            <path
-                                d="M9.943,4.269A.5.5,0,0,0,9.5,4h-7a.5.5,0,0,0-.41.787l3.5,5a.5.5,0,0,0,.82,0l3.5-5A.5.5,0,0,0,9.943,4.269Z" />
-                        </svg>
-                    </a>
-
-                    <ul class="f-header__dropdown">
-                        <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item One</a></li>
-                        <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Two</a></li>
-                        <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Three</a></li>
-                    </ul>
-                </li> --}}
                 <li class="f-header__item"><a href="{{ route('client.index') }}" class="f-header__link">Home</a></li>
                 <li class="f-header__item"><a href="{{ route('client.services.index') }}"
                         class="f-header__link">Servis</a></li>
                 <li class="f-header__item"><a href="{{ route('client.products.index') }}"
                         class="f-header__link">Produk</a></li>
-                <li class="f-header__item"><a href="{{ route('client.about-us.index') }}" class="f-header__link">Tentang Kami</a></li>
+                <li class="f-header__item"><a href="{{ route('client.about-us.index') }}" class="f-header__link">Tentang
+                        Kami</a></li>
                 </li>
             </ul>
 
@@ -71,6 +48,34 @@
                     </li>
                 @endguest
                 @auth
+                    {{-- make header item with cart icon --}}
+                    <li class="f-header__item">
+                        <a href="{{ route('client.cart.index') }}" class="f-header__link" aria-label="Cart">
+                            <svg height="1em" width="1em" version="1.1" id="_x32_"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512" xml:space="preserve">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill: #000000;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="
+                                        M507.316,126.733L138.349,97.498l-5.612-31.861c-5.154-29.076-28.294-51.611-57.524-55.942L9.677,0 L4.684,33.717l65.544,9.72c14.676,2.165,26.342,13.504,28.919,28.134l52.95,300.107c4.969,28.168,29.431,48.69,58.044,48.698 h229.728l6.828-34.102H210.142c-12.049,0.017-22.373-8.662-24.454-20.522l-7.42-41.992h283.58L507.316,126.733z" />
+                                    <path class="st0"
+                                        d="M223.148,438.658c-20.253,0-36.667,16.426-36.667,36.678c0,20.254,16.414,36.663,36.667,36.663 c20.258,0,36.675-16.409,36.675-36.663C259.823,455.084,243.405,438.658,223.148,438.658z" />
+                                    <path class="st0"
+                                        d="M386.068,438.658c-20.257,0-36.666,16.426-36.666,36.678c0,20.254,16.409,36.663,36.666,36.663 c20.258,0,36.68-16.409,36.68-36.663C422.748,455.084,406.327,438.658,386.068,438.658z" />
+                                </g>
+                            </svg>
+
+                            <span class="cart-count text-xs font-medium ml-2 text-white rounded-full px-2">
+                                {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
+                            </span>
+                        </a>
+                    </li>
+
                     <li class="f-header__item">
                         <a href="#" class="f-header__link">
                             <span>{{ auth()->user()->name }}</span>
@@ -82,17 +87,9 @@
 
                         <ul class="f-header__dropdown">
                             <li>
-                                <a href="{{ route('client.profile.edit') }}" class="f-header__dropdown-link leading-tight">Profile</a>
-                                </li>
-                            <li>
-                                <a href="{{ route('client.cart.index') }}" class="f-header__dropdown-link leading-tight">
-                                    Keranjang
-                                    <span class="cart-count text-xs font-medium ml-2 text-white rounded-full px-2">
-                                        {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
-                                    </span>
-                                </a>
+                                <a href="{{ route('client.profile.edit') }}"
+                                    class="f-header__dropdown-link leading-tight">Profile</a>
                             </li>
-
                             <li>
                                 <a href="{{ route('client.orders.index') }}" class="f-header__dropdown-link leading-tight">
                                     Pesanan

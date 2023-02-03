@@ -37,7 +37,8 @@
                                 <tr>
                                     <th>Pesanan</th>
                                     <th>Bukti Pembayaran</th>
-                                    <th>Waktu dipesan</th>
+                                    <th>Status Pemesanan</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Total Harga</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -45,9 +46,9 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>{{ $order->uuid }}</td>
+                                        <td>{{ str()->of($order->uuid)->limit(10) }}</td>
                                         <td>
-                                            @if($order->evidence_of_payment != null)
+                                            @if ($order->evidence_of_payment != null)
                                                 <a href="{{ Storage::url($order->evidence_of_payment) }}" target="_blank">
                                                     <button type="button" class="btn btn-sm btn-primary btn-icon-text">
                                                         <i class="btn-icon-prepend" data-feather="download"></i>
@@ -61,19 +62,70 @@
                                                 </button>
                                             @endif
                                         </td>
-                                        <td>{{ $order->created_at->diffForHumans() }}</td>
+                                        <td>
+                                            <form id="change-order-status-{{ $order->uuid }}"
+                                                action="{{ route('admin.orders.change-order-status', $order) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('patch')
+                                                <select class="form-select form-select-sm mb-3" name="order_status"
+                                                    onchange="
+                                                    if(confirm('Apakah anda yakin ingin mengubah status pemesanan ini?')) {
+                                                        event.preventDefault();
+                                                        document.getElementById('change-order-status-{{ $order->uuid }}').submit();
+                                                    } else {
+                                                        event.preventDefault();
+                                                    }
+                                                ">
+                                                    @foreach ($orderEnums::cases() as $enum)
+                                                        @if ($order->services()->count() < 1 && $enum == $orderEnums::COURIER )
+                                                            @continue
+                                                        @endif
+                                                        <option value="{{ $enum }}"
+                                                            {{ $order->order_status == $enum ? 'selected' : '' }}>
+                                                            {{ $enum }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </form>
+                                        </td>
+
+                                        <td>
+                                            <form id="change-payment-status-{{ $order->uuid }}"
+                                                action="{{ route('admin.orders.change-payment-status', $order) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('patch')
+                                                <select class="form-select form-select-sm mb-3" name="payment_status"
+                                                    onchange="
+                                                    if(confirm('Apakah anda yakin ingin mengubah status pembayaran ini?')) {
+                                                        event.preventDefault();
+                                                        document.getElementById('change-payment-status-{{ $order->uuid }}').submit();
+                                                    } else {
+                                                        event.preventDefault();
+                                                    }
+                                                ">
+                                                    @foreach ($paymentEnums::cases() as $enum)
+                                                        <option value="{{ $enum }}"
+                                                            {{ $order->payment_status == $enum ? 'selected' : '' }}>
+                                                            {{ $enum }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </form>
+                                        </td>
 
                                         <td>{{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <a href="{{ route('admin.orders.show', $order) }}">
-                                                    <button type="button" class="btn btn-sm btn-primary btn-icon-text mx-3">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-primary btn-icon-text mx-3">
                                                         <i class="btn-icon-prepend" data-feather="eye"></i>
                                                         Lihat Detail
                                                     </button>
                                                 </a>
                                                 <button type="button" class="mr-2 btn btn-sm btn-danger btn-icon-text"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModal{{ $order->id }}">
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal{{ $order->id }}">
                                                     <i class=" btn-icon-prepend" data-feather="trash"></i>
                                                     Hapus
                                                 </button>

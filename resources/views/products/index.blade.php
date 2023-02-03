@@ -87,7 +87,7 @@
                                 menavigasi ke halaman servis.</p>
                         </div>
 
-                        <div class="flex justify-end mt-3 lg:mt-5"><a class="btn btn--subtle" href="#0">Pelajari
+                        <div class="flex justify-end mt-3 lg:mt-5"><a class="btn btn--subtle" href="{{ route('client.services.index') }}">Pelajari
                                 lebih lanjut</a></div>
                     </div>
                 </div>

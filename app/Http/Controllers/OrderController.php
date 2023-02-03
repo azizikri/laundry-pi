@@ -28,8 +28,6 @@ class OrderController extends Controller
     {
         $this->authorize('owner', $order);
 
-        // $order->order_status === OrderStatus::CANCELED ? $order->order_status = OrderStatus::PENDING : $order->order_status = OrderStatus::CANCELED;
-
         if ($order->order_status === OrderStatus::CANCELED) {
             $newOrder = new Order;
             $newOrder->fill([
@@ -39,7 +37,7 @@ class OrderController extends Controller
                 'reciever_phone' => $order->reciever_phone,
                 'reciever_address' => $order->reciever_address,
             ]);
-            
+
             $newOrder->save();
 
             foreach ($order->products as $product) {
@@ -56,10 +54,14 @@ class OrderController extends Controller
 
             return redirect()->route('client.orders.show', $newOrder)->with('success', 'Pesanan berhasil dibuat!');
 
-        } else if ($order->order_status === OrderStatus::PENDING) {
+        } elseif ($order->order_status === OrderStatus::PENDING) {
             $order->order_status = OrderStatus::CANCELED;
             $order->save();
             return redirect()->back()->with('success', 'Status Pesanan berhasil diubah!');
+        } elseif ($order->order_status === OrderStatus::DELIVERED) {
+            $order->order_status = OrderStatus::COMPLETED;
+            $order->save();
+            return redirect()->back()->with('success', 'Pesanan selesai!');
         } else {
             return redirect()->back()->with('error', 'Status Pesanan tidak dapat diubah!');
         }

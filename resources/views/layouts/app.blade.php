@@ -23,7 +23,7 @@
     @stack('styles')
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>shoesclean.co</title>
 
 </head>
 

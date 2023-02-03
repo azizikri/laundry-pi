@@ -20,8 +20,13 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::orderBy('created_at', 'desc')->get();
+        $orderEnums = OrderStatus::class;
+        $paymentEnums = PaymentStatus::class;
+
         return view('admin.orders.index', [
             'orders' => $orders,
+            'orderEnums' => $orderEnums,
+            'paymentEnums' => $paymentEnums
         ]);
     }
 

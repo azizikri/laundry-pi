@@ -17,7 +17,7 @@ License: For each use you must have a valid license purchased only from above li
 	<meta name="author" content="NobleUI">
 	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, laravel, theme, front-end, ui kit, web">
 
-  <title>NobleUI - Laravel Admin Dashboard Template</title>
+  <title>shoesclean.co - Admin</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@ License: For each use you must have a valid license purchased only from above li
     <!-- common js -->
     <script src="{{ asset('admin/assets/js/template.js') }}"></script>
     <!-- end common js -->
-  
+
     @stack('custom-scripts')
 </body>
 </html>
