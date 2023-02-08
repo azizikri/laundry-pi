@@ -109,17 +109,17 @@
                     <ul>
                         <li>
                             <p>
-                                BCA 1234567890 a/n PT. Kedai Kita
+                                BCA 1234567890 a/n shoesclean.co
                             </p>
                         </li>
                         <li>
                             <p>
-                                BNI 1234567890 a/n PT. Kedai Kita
+                                BNI 1234567890 a/n shoesclean.co
                             </p>
                         </li>
                         <li>
                             <p>
-                                Mandiri 1234567890 a/n PT. Kedai Kita
+                                Mandiri 1234567890 a/n shoesclean.co
                             </p>
                         </li>
                     </ul>

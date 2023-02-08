@@ -7,8 +7,9 @@ use App\Models\Order;
 use App\Models\Courier;
 use App\Models\Product;
 use App\Models\Service;
-use Illuminate\Http\Request;
 use App\Enum\Order\OrderStatus;
+use App\Enum\Order\PaymentStatus;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -21,6 +22,8 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
+        $orderEnums = OrderStatus::class;
+        $paymentEnums = PaymentStatus::class;
         $userCount = User::count();
         $productCount = Product::count();
         $serviceCount = Service::count();
@@ -36,6 +39,8 @@ class DashboardController extends Controller
             'totalOrderCount' => $totalOrderCount,
             'orderCompletedCount' => $orderCompletedCount,
             'pendingOrders' => $pendingOrders,
+            'orderEnums' => $orderEnums,
+            'paymentEnums' => $paymentEnums
         ]);
     }
 }

@@ -14,14 +14,14 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center items-center gap-3 lg:gap-5">
-                    <a class="btn btn--primary" href="{{ route('client.login') }}">Ayo kita mulai!</a>
+                    <a class="btn btn--primary" href="{{ auth()->check() ? '#item' : route('client.login') }}">Ayo kita mulai!</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- bi-color feature -->
-    <section class="feature-v10 ">
+    <section class="feature-v10" id="item">
         <div class="py-12 lg:py-20 lg:pt-32 lg:pb-0" data-theme="secondary">
             <div
                 class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">

@@ -39,6 +39,10 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
     //     return view('dashboard');
     // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('tentang-kami', function () {
+    return view('about-us');
+})->name('about-us.index');
+
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -55,11 +59,6 @@ Route::get('/tentang-kami', AboutUsController::class)->name('about-us.index');
         Route::get('/pesanan/{order}', [OrderController::class, 'show'])->name('orders.show');
         Route::patch('/pesanan/{order}/bukti-pembayaran', [OrderController::class, 'uploadPaymentProof'])->name('orders.upload.payment-proof');
         Route::get('/pesanan/{order}/ubah-status', [OrderController::class, 'changeOrderStatus'])->name('orders.change-status');
-
-        Route::get('tentang-kami', function () {
-            return view('about-us');
-        })->name('about-us.index');
-
 });
 
 require __DIR__.'/auth.php';
