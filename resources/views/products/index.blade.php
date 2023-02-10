@@ -30,9 +30,8 @@
                                     <ul class="p-table__features mb-5 lg:mb-8">
                                         <li>
                                             <h4 class="p-table__title">{{ $product->name }}</h4>
-                                            <p>
-                                                {{ $product->description }}
-                                            </p>
+                                            <div class="my-3">
+                                            </div>
                                             <p class="font-bold">
                                                 {{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}
                                             </p>

@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="text-component text-space-y-md my-5 lg:my-8">
-                    <p>{{ $service->description }}</p>
+                    <p>{!! $service->description !!}</p>
                     <p class="text-lg lg:text-2xl"><ins class="no-underline">{{ 'Rp. ' . number_format($service->price, 0, ',', '.') }}</ins></p>
                 </div>
 

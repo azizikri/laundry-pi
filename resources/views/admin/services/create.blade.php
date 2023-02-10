@@ -41,7 +41,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Deskripsi</label>
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{!! old('description') !!}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Gambar</label>
@@ -58,14 +58,37 @@
     </div>
 @endsection
 @push('plugin-scripts')
+    <script src="{{ asset('admin/assets/plugins/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/dropify/js/dropify.min.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
     <script>
         $(function() {
+            if ($("#description").length) {
+                tinymce.init({
+                    selector: '#description',
+                    height: 400,
+                    default_text_color: 'red',
+                    plugins: [
+                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen'
+                    ],
+                    toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                    toolbar2: 'preview media | forecolor backcolor emoticons | codesample help',
+                    image_advtab: true,
+                    templates: [{
+                            title: 'Test template 1',
+                            content: 'Test 1'
+                        },
+                        {
+                            title: 'Test template 2',
+                            content: 'Test 2'
+                        }
+                    ],
+                    content_css: []
+                });
+            }
             $('#image').dropify();
         });
     </script>
 @endpush
-

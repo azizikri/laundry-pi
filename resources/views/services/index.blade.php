@@ -34,9 +34,8 @@
                                     <ul class="p-table__features mb-5 lg:mb-8">
                                         <li>
                                             <h4 class="p-table__title">{{ $service->name }}</h4>
-                                            <p class="my-3">
-                                                {{ $service->description }}
-                                            </p>
+                                            <div class="my-3">
+                                            </div>
                                             <p class="font-bold">
                                                 {{ 'Rp. ' . number_format($service->price, 0, ',', '.') }}
                                             </p>

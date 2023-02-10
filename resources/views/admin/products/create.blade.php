@@ -28,7 +28,8 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title my-3">Buat Produk</h6>
-                    <form class="forms-sample" action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+                    <form class="forms-sample" action="{{ route('admin.products.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama</label>
@@ -37,15 +38,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Harga</label>
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga" value="{{ old('price') }}">
+                            <input name="price" type="number" class="form-control" id="price" placeholder="Harga"
+                                value="{{ old('price') }}">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Deskripsi</label>
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{!! old('description') !!}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Gambar</label>
-                            <input name="image" type="file" id="image" accept=".png,.jpg,.webp"/>
+                            <input name="image" type="file" id="image" accept=".png,.jpg,.webp" />
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Cancel</a>
@@ -57,12 +59,36 @@
     </div>
 @endsection
 @push('plugin-scripts')
+    <script src="{{ asset('admin/assets/plugins/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/dropify/js/dropify.min.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
     <script>
         $(function() {
+            if ($("#description").length) {
+                tinymce.init({
+                    selector: '#description',
+                    height: 400,
+                    default_text_color: 'red',
+                    plugins: [
+                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen'
+                    ],
+                    toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                    toolbar2: 'preview media | forecolor backcolor emoticons | codesample help',
+                    image_advtab: true,
+                    templates: [{
+                            title: 'Test template 1',
+                            content: 'Test 1'
+                        },
+                        {
+                            title: 'Test template 2',
+                            content: 'Test 2'
+                        }
+                    ],
+                    content_css: []
+                });
+            }
             $('#image').dropify();
         });
     </script>
