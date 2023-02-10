@@ -31,24 +31,70 @@
 
                 <div class="text-component text-space-y-md my-5 lg:my-8">
                     <p>{{ $product->description }}</p>
-                    <p class="text-lg lg:text-2xl"><ins class="no-underline">Rp. {{ $product->price }}</ins></p>
+                    <p class="text-lg lg:text-2xl"><ins class="no-underline">{{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}</ins></p>
                 </div>
 
                 <div class="mb-5 lg:mb-8">
 
                 </div>
 
-                <div class="flex gap-2 lg:gap-3">
+
+                <div class="flex flex-col md:flex-row gap-2 lg:gap-3">
                     <label class="form-label sr-only" for="quantity">Kuantitas:</label>
 
-                    <div class="number-input number-input--v1 js-number-input ">
-                        <input class="form-control js-number-input__value" type="number" name="quantity" id="quantity"
-                            min="0" max="10" step="1" value="1">
-                    </div>
-
-                    <button class="btn btn--primary grow">Tambah ke keranjang</button>
+                    <input class="form-control js-number-input__value" type="number" name="quantity" id="quantity"
+                        min="0" max="10" step="1" value="1">
+                    @guest
+                        <a href="{{ route('client.login') }}" class="btn btn--primary grow">Tambah ke keranjang</a>
+                    @endguest
+                    @auth
+                        <button class="btn btn--primary grow cart-add" type="submit" data-id="{{ $product->slug }}"
+                            data-itemid="{{ $product->id }}" data-name="{{ $product->name }}"
+                            data-image="{{ $product->image }}" data-price="{{ $product->price }}">Tambah ke
+                            keranjang</button>
+                    @endauth
                 </div>
+
             </div>
         </div>
     </section>
+
+    @push('scripts')
+        <script>
+            function addToCart(e) {
+                e.preventDefault();
+
+                let id = $(this).data('id');
+                let item_id = $(this).data('itemid');
+                let name = $(this).data('name');
+                let type = 'Servis';
+                let image = $(this).data('image');
+                let price = $(this).data('price');
+                let quantity = $('#quantity').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('client.cart.add') }}",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "id": id,
+                        "item_id": item_id,
+                        "name": name,
+                        "type": type,
+                        "image": image,
+                        "price": price,
+                        "quantity": quantity,
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                });
+            }
+
+            $(document).ready(function() {
+                $('.cart-add').click(addToCart);
+            });
+        </script>
+    @endpush
+
 </x-app-layout>

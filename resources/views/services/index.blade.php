@@ -24,7 +24,7 @@
                                             href="{{ route('client.services.show', $service) }}"
                                             aria-label="Description of the link">
                                             <figure class="prod-card__img ">
-                                                <img src="{{ $service->image() }}" alt="Product preview image">
+                                                <img src="{{ $service->image() }}" alt="Product preview image" style="min-height: 20em; max-height: 20em">
                                             </figure>
                                         </a>
                                     </div>

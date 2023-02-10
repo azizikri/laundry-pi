@@ -56,7 +56,7 @@
                                             <img src="{{ $product->image() }}" alt="image" class="img-sm rounded-circle">
                                         </td>
 
-                                        <td>Rp.{{ $product->price }}</td>
+                                        <td>{{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}</td>
                                         <td>{{ $product->description }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
