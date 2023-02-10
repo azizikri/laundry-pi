@@ -74,8 +74,10 @@
                                     {{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}
                                 </p>
                             </div>
-                            <img src="{{ $product->image() }}" class="flex-shrink-0 object-cover rounded-lg text-center"
-                                style="max-width: 6em; max-height: 6em; min-width: 6em; min-height: 6em;" alt="Image">
+                            <div style="width: 8em; height: 8em;">
+                                <img src="{{ $product->image() }}" class="flex-shrink-0 object-cover rounded-lg text-center w-full h-full"
+                                alt="Image">
+                            </div>
                         </div>
                     </div>
                 @endforeach
