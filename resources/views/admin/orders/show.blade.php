@@ -107,9 +107,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($order->products as $item)
+                                    @forelse ($order->products as $item)
                                         <tr class="text-end">
-                                            <td class="text-start">{{ $item->slug ?? 'Barang Dihapus' }}</td>
+                                            <td class="text-start">{{ $item->slug }}</td>
                                             <td class="text-start">{{ $item->name }}</td>
                                             <td>{{ $item->pivot->quantity }}</td>
                                             <td>
@@ -119,10 +119,14 @@
                                                 {{ 'Rp. ' . number_format($item->price * $item->pivot->quantity, 0, ',', '.') }}
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr colspan="5">
+                                            <td>Barang Dihapus</td>
+                                        </tr>
+                                    @endforelse
                                     @foreach ($order->services as $item)
                                         <tr class="text-end">
-                                            <td class="text-start">{{ $item->slug ?? 'Barang Dihapus' }}</td>
+                                            <td class="text-start">{{ $item->slug }}</td>
                                             <td class="text-start">{{ $item->name }}</td>
                                             <td>{{ $item->pivot->quantity }}</td>
                                             <td>
