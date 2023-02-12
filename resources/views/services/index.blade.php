@@ -42,23 +42,23 @@
                                         </li>
                                     </ul>
 
-                                    <div class="mt-auto">
-                                        @guest
-                                            <div class="flex justify-start mt-3 lg:mt-5">
-                                                <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
-                                                    Tambah ke keranjang
-                                                </a>
-                                            </div>
-                                        @endguest
-                                        @auth
-                                            <div class="flex justify-start mt-3 lg:mt-5">
-                                                <button class="btn btn--primary btn--md w-full cart-add" type="submit"
-                                                    data-id="{{ $service->slug }}" data-itemid="{{ $service->id }}"
-                                                    data-name="{{ $service->name }}" data-image="{{ $service->image }}"
-                                                    data-price="{{ $service->price }}">Tambah ke keranjang</button>
-                                            </div>
-                                        @endauth
-                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    @guest
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                                Tambah ke keranjang
+                                            </a>
+                                        </div>
+                                    @endguest
+                                    @auth
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <button class="btn btn--primary btn--md w-full cart-add" type="submit"
+                                                data-id="{{ $service->slug }}" data-itemid="{{ $service->id }}"
+                                                data-name="{{ $service->name }}" data-image="{{ $service->image }}"
+                                                data-price="{{ $service->price }}">Tambah ke keranjang</button>
+                                        </div>
+                                    @endauth
                                 </div>
                             </div>
                         @empty

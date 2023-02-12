@@ -98,7 +98,7 @@
                                 </p>
                             </div>
                             <img src="{{ $service->image() }}" class="flex-shrink-0 object-cover rounded-lg"
-                                style="max-width: 25%; max-height: 25%;" alt="Image">
+                                style="width: 8em; height: 8em;" alt="Image">
                         </div>
                     </div>
                 @endforeach

@@ -36,25 +36,24 @@
                                                 {{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}
                                             </p>
                                         </li>
-                                    </ul>
-
-                                    <div class="mt-auto">
-                                        @guest
-                                            <div class="flex justify-start mt-3 lg:mt-5">
-                                                <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
-                                                    Tambah ke keranjang
-                                                </a>
-                                            </div>
-                                        @endguest
-                                        @auth
-                                            <div class="flex justify-start mt-3 lg:mt-5">
-                                                <button class="btn btn--primary btn--md w-full cart-add" type="submit"
-                                                    data-id="{{ $product->slug }}" data-itemid="{{ $product->id }}"
-                                                    data-name="{{ $product->name }}" data-image="{{ $product->image }}"
-                                                    data-price="{{ $product->price }}">Tambah ke keranjang</button>
-                                            </div>
-                                        @endauth
-                                    </div>
+                                    </ul>   
+                                </div>
+                                <div class="mt-auto">
+                                    @guest
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <a href="{{ route('client.login') }}" class="btn btn--primary btn--md w-full">
+                                                Tambah ke keranjang
+                                            </a>
+                                        </div>
+                                    @endguest
+                                    @auth
+                                        <div class="flex justify-start mt-3 lg:mt-5">
+                                            <button class="btn btn--primary btn--md w-full cart-add" type="submit"
+                                                data-id="{{ $product->slug }}" data-itemid="{{ $product->id }}"
+                                                data-name="{{ $product->name }}" data-image="{{ $product->image }}"
+                                                data-price="{{ $product->price }}">Tambah ke keranjang</button>
+                                        </div>
+                                    @endauth
                                 </div>
                             </div>
                         @empty
