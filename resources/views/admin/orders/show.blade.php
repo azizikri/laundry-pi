@@ -144,12 +144,14 @@
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <td class="text-bold-800">Total Belanja</td>
+                                                <td class="text-bold-800">
+                                                    Total Belanja
+                                                    <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
+                                                </td>
                                                 <td class="text-bold-800 text-end">
                                                     {{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}
                                                 </td>
                                             </tr>
-                                            <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                                             <tr>
                                                 <td>Bukti Pembayaran</td>
                                                 <td class="text-danger text-end">
