@@ -162,13 +162,13 @@
                             </a>
                         @endif
 
-                        @if($order->order_status == $orderEnums::CANCELED || $order->order_status == $orderEnums::COMPLETED)
+                        @if($order->order_status != $orderEnums::PENDING)
                             <button class="px-4 py-2 my-3 text-white rounded btn btn--primary lg:ml-3"
                                 aria-controls="modal-bukti">
                                 {{ $order->evidence_of_payment == null ? 'Upload Bukti Pembayaran' : 'Update Bukti Pembayaran' }}
                             </button>
                         @endif
-                        
+
                         @if ($order->payment_status != $paymentEnums::PENDING)
                             <a href="{{ Storage::url($order->evidence_of_payment) }}" download>
                                 <button class="px-4 py-2 my-3 rounded btn btn--primary lg:ml-3">
