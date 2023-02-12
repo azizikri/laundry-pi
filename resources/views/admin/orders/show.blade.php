@@ -145,7 +145,7 @@
                                         <tbody>
                                             <tr>
                                                 <td class="text-bold-800">
-                                                    Total Belanja
+                                                    Total Belanja <br>
                                                     <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                                                 </td>
                                                 <td class="text-bold-800 text-end">
