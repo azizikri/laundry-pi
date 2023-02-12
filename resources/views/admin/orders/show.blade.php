@@ -107,7 +107,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($order->products as $item)
+                                    @foreach ($order->products as $item)
                                         <tr class="text-end">
                                             <td class="text-start">{{ $item->slug }}</td>
                                             <td class="text-start">{{ $item->name }}</td>
@@ -119,11 +119,7 @@
                                                 {{ 'Rp. ' . number_format($item->price * $item->pivot->quantity, 0, ',', '.') }}
                                             </td>
                                         </tr>
-                                    @empty
-                                        <tr colspan="5">
-                                            <td>Barang Dihapus</td>
-                                        </tr>
-                                    @endforelse
+                                    @endforeach
                                     @foreach ($order->services as $item)
                                         <tr class="text-end">
                                             <td class="text-start">{{ $item->slug }}</td>
@@ -139,6 +135,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                         </div>
                     </div>
                     <div class="container-fluid mt-5 w-100">
