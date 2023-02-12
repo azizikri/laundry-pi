@@ -135,7 +135,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                         </div>
                     </div>
                     <div class="container-fluid mt-5 w-100">
@@ -149,6 +148,7 @@
                                                 <td class="text-bold-800 text-end">
                                                     {{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}
                                                 </td>
+                                                <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                                             </tr>
                                             <tr>
                                                 <td>Bukti Pembayaran</td>
