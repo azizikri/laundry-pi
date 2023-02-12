@@ -11,52 +11,51 @@
                             <div class="p-4">
                                 <div class="flex justify-between">
                                     <h2 class="text-xl font-bold">Pesanan #{{ $order->uuid }}</h2>
-
                                     <div>
                                         @if ($order->order_status == $orderEnums::PENDING)
-                                            <span class="mx-3 bg-primary-lighter text-white p-2 text-xs">
+                                            <span class="mx-2 bg-primary-lighter text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::PENDING->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::PROCESSING)
-                                            <span class="mx-3 bg-warning-dark text-white p-2 text-xs">
+                                            <span class="mx-2 bg-warning-dark text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::PROCESSING->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::COURIER)
-                                            <span class="mx-3 bg-success-lighter text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-lighter text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::COURIER->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::SHIPPING)
-                                            <span class="mx-3 bg-success-lighter text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-lighter text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::SHIPPING->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::DELIVERED)
-                                            <span class="mx-3 bg-success-dark text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-dark text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::DELIVERED->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::COMPLETED)
-                                            <span class="mx-3 bg-success-darker text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-darker text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::COMPLETED->value) }}
                                             </span>
                                         @elseif($order->order_status == $orderEnums::CANCELED)
-                                            <span class="mx-3 bg-accent-dark text-white p-2 text-xs">
+                                            <span class="mx-2 bg-accent-dark text-white p-2 text-xs">
                                                 {{ ucfirst($orderEnums::CANCELED->value) }}
                                             </span>
                                         @endif
 
                                         @if ($order->payment_status == $paymentEnums::PENDING)
-                                            <span class="mx-3 bg-accent-dark text-white p-2 text-xs">
+                                            <span class="mx-2 bg-accent-dark text-white p-2 text-xs">
                                                 {{ ucfirst($paymentEnums::PENDING->value) }}
                                             </span>
                                         @elseif($order->payment_status == $paymentEnums::UPLOADED)
-                                            <span class="mx-3 bg-success-light text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-light text-white p-2 text-xs">
                                                 {{ ucfirst($paymentEnums::UPLOADED->value) }}
                                             </span>
                                         @elseif($order->payment_status == $paymentEnums::VERIFIED)
-                                            <span class="mx-3 bg-success-dark text-white p-2 text-xs">
+                                            <span class="mx-2 bg-success-dark text-white p-2 text-xs">
                                                 {{ ucfirst($paymentEnums::VERIFIED->value) }}
                                             </span>
                                         @elseif($order->payment_status == $paymentEnums::FAILED)
-                                            <span class="mx-3 bg-accent-darker text-white p-2 text-xs">
+                                            <span class="mx-2 bg-accent-darker text-white p-2 text-xs">
                                                 {{ ucfirst($paymentEnums::FAILED->value) }}
                                             </span>
                                         @endif
