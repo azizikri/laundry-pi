@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
         return [
             'name' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
             'price' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'numeric'],
-            'description' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'max:255'],
+            'description' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string'],
             'image' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:2048'],
         ];
     }

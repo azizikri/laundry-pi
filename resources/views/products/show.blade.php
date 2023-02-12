@@ -67,10 +67,10 @@
                 let id = $(this).data('id');
                 let item_id = $(this).data('itemid');
                 let name = $(this).data('name');
-                let type = 'Servis';
+                let type = 'Produk';
                 let image = $(this).data('image');
                 let price = $(this).data('price');
-                let quantity = $('#quantity').val();
+                let quantity = parseInt($('#quantity').val());
 
                 $.ajax({
                     type: 'POST',

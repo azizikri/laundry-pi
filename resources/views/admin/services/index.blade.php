@@ -56,7 +56,7 @@
                                             <img src="{{ $service->image() }}" alt="image" class="img-sm rounded-circle">
                                         </td>
                                         <td>{{ 'Rp. ' . number_format($service->price, 0, ',', '.') }}</td>
-                                        <td>{{ $service->description }}</td>
+                                        <td>{!! $service->description !!}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <a href="{{ route('admin.services.edit', $service) }}"

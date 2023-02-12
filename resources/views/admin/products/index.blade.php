@@ -57,7 +57,7 @@
                                         </td>
 
                                         <td>{{ 'Rp. ' . number_format($product->price, 0, ',', '.') }}</td>
-                                        <td>{{ $product->description }}</td>
+                                        <td>{!! $product->description !!}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <a href="{{ route('admin.products.edit', $product) }}"

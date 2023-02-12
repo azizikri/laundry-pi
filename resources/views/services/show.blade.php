@@ -68,7 +68,7 @@
                 let type = 'Servis';
                 let image = $(this).data('image');
                 let price = $(this).data('price');
-                let quantity = $('#quantity').val();
+                let quantity = parseInt($('#quantity').val());
 
                 $.ajax({
                     type: 'POST',

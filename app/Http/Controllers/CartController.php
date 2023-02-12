@@ -27,7 +27,7 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
 
         if (isset($cart[$request->id])) {
-            $cart[$request->id]['quantity'] += $request->quantity ?? 1;
+            $cart[$request->id]['quantity'] += $request->quantity ? (int) $request->quantity : 1;
         } else {
             $cart[$request->id] = [
                 "item_id" => $request->item_id,
@@ -35,7 +35,7 @@ class CartController extends Controller
                 "type" => $request->type,
                 "image" => $request->image,
                 "price" => $request->price,
-                "quantity" => $request->quantity ?? 1,
+                "quantity" => $request->quantity ? (int) $request->quantity : 1,
             ];
         }
 
