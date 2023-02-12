@@ -148,8 +148,8 @@
                                                 <td class="text-bold-800 text-end">
                                                     {{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}
                                                 </td>
-                                                <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                                             </tr>
+                                            <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                                             <tr>
                                                 <td>Bukti Pembayaran</td>
                                                 <td class="text-danger text-end">
