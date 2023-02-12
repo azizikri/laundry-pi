@@ -145,8 +145,7 @@
                                         <tbody>
                                             <tr>
                                                 <td class="text-bold-800">
-                                                    Total Belanja <br>
-                                                    <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
+                                                    Total Belanja
                                                 </td>
                                                 <td class="text-bold-800 text-end">
                                                     {{ 'Rp. ' . number_format($order->total_price, 0, ',', '.') }}
@@ -177,6 +176,7 @@
                                 </div>
                             </div>
                         </div>
+                        <small class="text-danger">*jika total harga tidak sesuai dengan data table maka ada data yang dihapus!</small>
                     </div>
                     <div class="container-fluid w-100">
                         <h5>Ubah Status Pemesanan</h5>
