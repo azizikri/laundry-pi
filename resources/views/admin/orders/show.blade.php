@@ -122,7 +122,7 @@
                                     @endforeach
                                     @foreach ($order->services as $item)
                                         <tr class="text-end">
-                                            <td class="text-start">{{ $item->slug 'Barang Dihapus' }}</td>
+                                            <td class="text-start">{{ $item->slug ?? 'Barang Dihapus' }}</td>
                                             <td class="text-start">{{ $item->name }}</td>
                                             <td>{{ $item->pivot->quantity }}</td>
                                             <td>
