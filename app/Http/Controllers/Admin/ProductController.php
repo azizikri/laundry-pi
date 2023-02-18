@@ -74,7 +74,7 @@ class ProductController extends Controller
     {
         $data = $request->validated();
 
-        if ($data['name'] != null) {
+        if ($request->has('name')) {
             $data['slug'] = $data['name'];
         }
 
