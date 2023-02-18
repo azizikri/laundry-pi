@@ -99,9 +99,11 @@ class AdminController extends Controller
     {
         $this->authorize('isSuperAdmin', auth('admin')->user());
 
-        $request->merge(['admin' => $admin]);
         $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
+
+        if ($request->has('password')){
+            $data['password'] = bcrypt($data['password']);
+        }
 
         $admin->update($data);
 
