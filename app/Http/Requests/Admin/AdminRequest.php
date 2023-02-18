@@ -31,5 +31,19 @@ class AdminRequest extends FormRequest
             'password' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'string', 'min:8', 'confirmed'],
         ];
     }
+
+    protected function prepareForValidation()
+    {
+        if ($this->isMethod('patch')) {
+            $data = ['name', 'email', 'password'];
+
+            foreach ($data as $key) {
+                if ($this->input($key) === null) {
+                    $this->request->remove($key);
+                }
+            }
+
+        }
+    }
 }
 

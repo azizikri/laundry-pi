@@ -31,4 +31,18 @@ class ServiceRequest extends FormRequest
             'image' => [Rule::when($this->isMethod('patch'), 'nullable', 'required'), 'image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:2048'],
         ];
     }
+
+    protected function prepareForValidation()
+    {
+        if ($this->isMethod('patch')) {
+            $data = ['name', 'price', 'description'];
+
+            foreach ($data as $key) {
+                if ($this->input($key) === null) {
+                    $this->request->remove($key);
+                }
+            }
+
+        }
+    }
 }
