@@ -74,6 +74,10 @@ class ProductController extends Controller
     {
         $data = $request->validated();
 
+        if ($data->has('name')) {
+            $data['slug'] = $data['name'];
+        }
+
         if ($request->hasFile('image')) {
             Storage::delete($product->image);
             $data['image'] = $request->file('image')->store('products');

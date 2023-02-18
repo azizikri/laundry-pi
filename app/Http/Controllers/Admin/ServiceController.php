@@ -74,7 +74,11 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, Service $service)
     {
         $data = $request->validated();
-        $data['slug'] = $data['name'];
+
+        if ($data->has('name')) {
+            $data['slug'] = $data['name'];
+        }
+        
         if ($request->hasFile('image')) {
             Storage::delete($service->image);
             $data['image'] = $request->file('image')->store('services');
