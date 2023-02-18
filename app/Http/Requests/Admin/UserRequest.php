@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
     protected function prepareForValidation()
     {
         if ($this->isMethod('patch')) {
-            $data = ['name', 'email'];
+            $data = ['name', 'email', 'password'];
 
             foreach ($data as $key) {
                 if ($this->input($key) === null) {

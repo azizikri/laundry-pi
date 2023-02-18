@@ -84,9 +84,11 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        $request->merge(['user' => $user]);
+        //$request->merge(['user' => $user]);
         $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
+        if ($request->has('password')){
+            $data['password'] = bcrypt($data['password']);
+        }
 
         $user->update($data);
 
