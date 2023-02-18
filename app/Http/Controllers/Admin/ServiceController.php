@@ -75,10 +75,10 @@ class ServiceController extends Controller
     {
         $data = $request->validated();
 
-        if ($data->has('name')) {
+        if ($data['name'] != null) {
             $data['slug'] = $data['name'];
         }
-        
+
         if ($request->hasFile('image')) {
             Storage::delete($service->image);
             $data['image'] = $request->file('image')->store('services');
